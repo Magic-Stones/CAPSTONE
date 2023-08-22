@@ -2522,14 +2522,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveDirection: {x: 0, y: 0}
-  _idleBottom: {fileID: 7400000, guid: 2e9b6db8656253d44b085a7ef293b239, type: 2}
-  _idleTop: {fileID: 7400000, guid: 42163416d85cc3743bbe3b4203673a2c, type: 2}
-  _idleRight: {fileID: 7400000, guid: 8896b4505dc7c1b40bfde26a38060dde, type: 2}
-  _idleLeft: {fileID: 7400000, guid: 558c177a4d3d62d43b49da13dcf28a11, type: 2}
-  _walkBottom: {fileID: 7400000, guid: 9a89a9da8e0fd3148ac8a8be21f15bd3, type: 2}
-  _walkTop: {fileID: 7400000, guid: f5ff2f217f7b46d4fbe15d2221154d77, type: 2}
-  _walkRight: {fileID: 7400000, guid: e792e8ea7d569714d86b41d55c2d523c, type: 2}
-  _walkLeft: {fileID: 7400000, guid: 50c2e44042d3d6446946ec74ffcf20cc, type: 2}
+  _idleRight: {fileID: 7400000, guid: 519740dee1f580445a49770101ff5cdc, type: 2}
+  _idleLeft: {fileID: 7400000, guid: a528b1de6b6526641896acdf8455008e, type: 2}
+  _walkRight: {fileID: 7400000, guid: 630e5eb53d8b4274283d9af21ce0e8e3, type: 2}
+  _walkLeft: {fileID: 7400000, guid: 78d69b4edab45d5458444205561d3802, type: 2}
   _animatorSprite: {fileID: 987963925}
 --- !u!50 &677550545
 Rigidbody2D:
@@ -4094,7 +4090,7 @@ SpriteRenderer:
   m_SortingLayerID: -1004788295
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3fc31e90d7c24e74bb41144b251c0120, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 064a65e9d9d779646a9b9f5019a090d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
