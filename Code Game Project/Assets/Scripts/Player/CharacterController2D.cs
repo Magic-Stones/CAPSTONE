@@ -66,10 +66,6 @@ public class CharacterController2D : MonoBehaviour
         {
             _directionIndex = 2;
         }
-        else 
-        {
-            _directionIndex = 1;
-        }
     }
 
     private void MoveCharacter()
