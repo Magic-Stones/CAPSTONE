@@ -5,17 +5,20 @@ using UnityEngine;
 
 public class MainBattle : MonoBehaviour
 {
-    private GameMechanics mechanics;
+    private Transform _worldUI;
+    private GameObject _quizUI;
+    private GameMechanics _mechanics;
 
     void Awake() 
     {
-        mechanics = GetComponent<GameMechanics>();
+        _worldUI = transform.Find("World UI");
+        _mechanics = FindObjectOfType<GameMechanics>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        mechanics.OnMainBattle += MainBattleEvent;
+        _mechanics.OnMainBattle += MainBattleEvent;
     }
 
     // Update is called once per frame
@@ -24,8 +27,14 @@ public class MainBattle : MonoBehaviour
         
     }
 
-    private void MainBattleEvent(object sender, EventArgs e) 
+    private void MainBattleEvent(object sender, GameMechanics.OnMainBattleEvent e) 
     {
-        Debug.Log("BATTLE!");
+        if (!_worldUI) return;
+        _worldUI.gameObject.SetActive(false);
+
+        _quizUI = Instantiate(e.quizSheet, transform);
+        _quizUI.transform.SetParent(transform);
+
+        // _mechanics.OnMainBattle -= MainBattleEvent;
     }
 }

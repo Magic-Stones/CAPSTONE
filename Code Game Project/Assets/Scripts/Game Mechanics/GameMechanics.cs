@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class GameMechanics : MonoBehaviour
 {
-    public event EventHandler OnMainBattle;
+    public event EventHandler<OnMainBattleEvent> OnMainBattle;
+    public class OnMainBattleEvent : EventArgs
+    {
+        public GameObject quizSheet;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +23,8 @@ public class GameMechanics : MonoBehaviour
         
     }
 
-    public void TriggerMainBattle() 
+    public void TriggerMainBattle(GameObject insertQuiz) 
     {
-        OnMainBattle?.Invoke(this, EventArgs.Empty);
+        OnMainBattle?.Invoke(this, new OnMainBattleEvent { quizSheet = insertQuiz });
     }
 }
