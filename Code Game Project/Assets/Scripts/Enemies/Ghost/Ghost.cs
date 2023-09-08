@@ -3,38 +3,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class Ghost : MonoBehaviour, IEnemy
 {
-    [SerializeField] private float searchRange = 3f;
-    [SerializeField] private float setMoveSpeed = 2f;
+    public int healthPoints = 3;
+
+    [SerializeField] private float _searchRange = 3f;
+    [SerializeField] private float _setMoveSpeed = 2f;
     private float _moveSpeed;
 
-    private Vector3 targetDirection;
+    private Vector3 _targetDirection;
 
     private bool _enableMovement = true;
 
-    [SerializeField] private GameObject player;
+    private const string TARGET_TAG = "Player";
     private Transform _targetTransform;
-    [SerializeField] private GameObject quizSheet;
+    [SerializeField] private GameObject _quizSheet;
 
-    [SerializeField] private AnimationClip idleRight, idleLeft;
+    [SerializeField] private AnimationClip _idleRight, _idleLeft;
 
     private Animator _animator;
     private Rigidbody2D _rb2D;
+    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer GetSpriteRenderer { get { return _spriteRenderer; } }
     private GameMechanics _mechanics;
 
     void Awake() 
     {
         _animator = GetComponentInChildren<Animator>();
         _rb2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
         _mechanics = FindObjectOfType<GameMechanics>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _moveSpeed = setMoveSpeed;
-        _targetTransform = GameObject.FindGameObjectWithTag(player.tag).transform;
+        _moveSpeed = _setMoveSpeed;
+        _targetTransform = GameObject.FindGameObjectWithTag(TARGET_TAG).transform;
+        
+        QuizUI quiz = _quizSheet.GetComponent<QuizUI>();
+        quiz.enemyChallenger = gameObject;
     }
 
     // Update is called once per frame
@@ -50,25 +58,30 @@ public class Ghost : MonoBehaviour
 
     private void FindTarget() 
     {
-        targetDirection = (_targetTransform.position - transform.position).normalized;
+        _targetDirection = (_targetTransform.position - transform.position).normalized;
 
-        if (Vector2.Distance(transform.position, _targetTransform.position) < searchRange)
+        if (Vector2.Distance(transform.position, _targetTransform.position) < _searchRange)
         {
-            _rb2D.MovePosition(transform.position + (targetDirection * _moveSpeed * Time.deltaTime));
+            _rb2D.MovePosition(transform.position + (_targetDirection * _moveSpeed * Time.deltaTime));
         }
     }
 
     private void FaceDirection()
     {
-        if (targetDirection.x >= 0f) _animator.Play(idleRight.name);
-        else _animator.Play(idleLeft.name);
+        if (_targetDirection.x >= 0f) _animator.Play(_idleRight.name);
+        else _animator.Play(_idleLeft.name);
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject, 1f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.tag.Equals(player.tag))
+        if (collision.gameObject.tag.Equals(TARGET_TAG))
         {
-            _mechanics.TriggerMainBattle(quizSheet);
+            _mechanics.TriggerMainBattle(_quizSheet);
             _enableMovement = false;
         }
     }
@@ -76,6 +89,6 @@ public class Ghost : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, searchRange);
+        Gizmos.DrawWireSphere(transform.position, _searchRange);
     }
 }

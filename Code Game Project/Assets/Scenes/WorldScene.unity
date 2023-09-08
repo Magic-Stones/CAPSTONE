@@ -357,12 +357,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 018c8e7744c9d0d48994dda8cf5cc402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchRange: 5
-  setMoveSpeed: 4
-  player: {fileID: 684779933661806842, guid: ae2cb552909df3c42bca729cd48a4738, type: 3}
-  quizSheet: {fileID: 7472590375641370299, guid: 797f42bcea9602a45a6839a605f384d7, type: 3}
-  idleRight: {fileID: 7400000, guid: 5f6373f8d68338343bec262a655d42d0, type: 2}
-  idleLeft: {fileID: 7400000, guid: 20a1e1a3d3b175741aff19a8ead745a4, type: 2}
+  healthPoints: 3
+  _searchRange: 4
+  _setMoveSpeed: 4
+  _quizSheet: {fileID: 7472590375641370299, guid: 797f42bcea9602a45a6839a605f384d7, type: 3}
+  _idleRight: {fileID: 7400000, guid: 5f6373f8d68338343bec262a655d42d0, type: 2}
+  _idleLeft: {fileID: 7400000, guid: 20a1e1a3d3b175741aff19a8ead745a4, type: 2}
 --- !u!1 &403140372
 GameObject:
   m_ObjectHideFlags: 0
