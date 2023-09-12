@@ -74,7 +74,7 @@ public class Ghost : MonoBehaviour, IEnemy
 
     public void Death()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 
