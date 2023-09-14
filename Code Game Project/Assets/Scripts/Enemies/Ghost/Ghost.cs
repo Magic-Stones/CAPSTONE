@@ -15,12 +15,14 @@ public class Ghost : MonoBehaviour, IEnemy
 
     private bool _enableMovement = true;
 
+    private bool _isDefeated = false;
+    public bool GetIsDefeated { get { return _isDefeated; } }
+
     private const string TARGET_TAG = "Player";
     private Transform _targetTransform;
     [SerializeField] private GameObject _quizSheet;
 
     [SerializeField] private AnimationClip _idleRight, _idleLeft;
-
     private Animator _animator;
     private Rigidbody2D _rb2D;
     private SpriteRenderer _spriteRenderer;
@@ -74,6 +76,7 @@ public class Ghost : MonoBehaviour, IEnemy
 
     public void Death()
     {
+        _isDefeated = true;
         Destroy(gameObject, 2f);
     }
 
@@ -81,7 +84,7 @@ public class Ghost : MonoBehaviour, IEnemy
     {
         if (collision.gameObject.tag.Equals(TARGET_TAG))
         {
-            _mechanics.TriggerMainBattle(_quizSheet);
+            _mechanics.TriggerChallenge(_quizSheet);
             _enableMovement = false;
         }
     }

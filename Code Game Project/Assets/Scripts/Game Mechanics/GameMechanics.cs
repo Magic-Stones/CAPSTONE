@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameMechanics : MonoBehaviour
 {
-    public event EventHandler<OnMainBattleEvent> OnMainBattle;
-    public class OnMainBattleEvent : EventArgs
+    public event EventHandler<OnChallengeEvent> OnQuizChallenge;
+    public class OnChallengeEvent : EventArgs
     {
         public GameObject quizSheet;
     }
@@ -23,8 +23,8 @@ public class GameMechanics : MonoBehaviour
         
     }
 
-    public void TriggerMainBattle(GameObject insertQuiz) 
+    public void TriggerChallenge(GameObject insertQuiz) 
     {
-        OnMainBattle?.Invoke(this, new OnMainBattleEvent { quizSheet = insertQuiz });
+        OnQuizChallenge?.Invoke(this, new OnChallengeEvent { quizSheet = insertQuiz });
     }
 }

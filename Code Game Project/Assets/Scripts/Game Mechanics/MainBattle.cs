@@ -18,7 +18,7 @@ public class MainBattle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _mechanics.OnMainBattle += MainBattleEvent;
+        _mechanics.OnQuizChallenge += QuizChallengeEvent;
     }
 
     // Update is called once per frame
@@ -27,14 +27,21 @@ public class MainBattle : MonoBehaviour
         
     }
 
-    private void MainBattleEvent(object sender, GameMechanics.OnMainBattleEvent e) 
+    private void QuizChallengeEvent(object sender, GameMechanics.OnChallengeEvent e) 
     {
         if (!_worldUI) return;
         _worldUI.gameObject.SetActive(false);
 
         _quizUI = Instantiate(e.quizSheet, transform);
         _quizUI.transform.SetParent(transform);
+    }
 
-        // _mechanics.OnMainBattle -= MainBattleEvent;
+    public void ChallengeComplete(IEnemy enemyChallenger)
+    {
+        _mechanics.OnQuizChallenge -= QuizChallengeEvent;
+
+        if (_quizUI) Destroy(_quizUI, 1f);
+        _worldUI.gameObject.SetActive(true);
+        enemyChallenger.Death();
     }
 }
