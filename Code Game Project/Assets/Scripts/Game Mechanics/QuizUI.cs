@@ -8,8 +8,7 @@ using UnityEngine.UI;
 
 public class QuizUI : MonoBehaviour
 {
-    private int _questionNum;
-    private int _questionNumLimit;
+    private int _quizIndex;
 
     private int _pressedBtnNum;
     private int _correctBtnNum;
@@ -17,6 +16,7 @@ public class QuizUI : MonoBehaviour
     private bool _setDisplayQuiz = true;
 
     [HideInInspector] public GameObject enemyChallenger;
+    [SerializeField] private QuizUITemplate _quizTemplate;
     [SerializeField] private Image _imgEnemy;
     [SerializeField] private List<TextMeshProUGUI> _buttonAnswersTMP;
     private TextMeshProUGUI _questionTMP;
@@ -39,9 +39,6 @@ public class QuizUI : MonoBehaviour
     void Start()
     {
         _imgEnemy.sprite = enemyChallenger.GetComponent<IEnemy>().GetSpriteRenderer.sprite;
-
-        _questionNum = 1;
-        _questionNumLimit = 3;
     }
 
     // Update is called once per frame
@@ -52,49 +49,19 @@ public class QuizUI : MonoBehaviour
 
     private void DisplayQuiz()
     {
-        switch (_questionNum)
+        if (_quizIndex < _quizTemplate.quizList.Count)
         {
-            case 1:
-                if (_setDisplayQuiz)
-                {
-                    _questionTMP.text = "public ___ score = 50;";
-                    _buttonAnswersTMP[0].text = "float";
-                    _buttonAnswersTMP[1].text = "int";
-                    _buttonAnswersTMP[2].text = "string";
-                    _buttonAnswersTMP[3].text = "bool";
+            if (_setDisplayQuiz)
+            {
+                _questionTMP.text = _quizTemplate.quizList[_quizIndex].question;
+                _buttonAnswersTMP[0].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_1;
+                _buttonAnswersTMP[1].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_2;
+                _buttonAnswersTMP[2].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_3;
+                _buttonAnswersTMP[3].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_4;
 
-                    _correctBtnNum = 2;
-                }
-                _setDisplayQuiz = false;
-                break;
-
-            case 2:
-                if (_setDisplayQuiz)
-                {
-                    _questionTMP.text = "private ___ name = \"Ricardo\";";
-                    _buttonAnswersTMP[0].text = "char";
-                    _buttonAnswersTMP[1].text = "double";
-                    _buttonAnswersTMP[2].text = "int";
-                    _buttonAnswersTMP[3].text = "string";
-
-                    _correctBtnNum = 4;
-                }
-                _setDisplayQuiz = false;
-                break;
-
-            case 3:
-                if (_setDisplayQuiz)
-                {
-                    _questionTMP.text = "const string AMBATU = ___;";
-                    _buttonAnswersTMP[0].text = "KHAN";
-                    _buttonAnswersTMP[1].text = "BLOU";
-                    _buttonAnswersTMP[2].text = "BASING";
-                    _buttonAnswersTMP[3].text = "NAT";
-
-                    _correctBtnNum = 1;
-                }
-                _setDisplayQuiz = false;
-                break;
+                _correctBtnNum = _quizTemplate.quizList[_quizIndex].correctButtonNumber;
+            }
+            _setDisplayQuiz = false;
         }
     }
 
@@ -104,10 +71,8 @@ public class QuizUI : MonoBehaviour
         {
             _setDisplayQuiz = true;
 
-            if (_questionNum != _questionNumLimit) _questionNum++;
-            else ChallengeComplete();
-
-            Debug.Log("CORRECT");
+            _quizIndex++;
+            if (_quizIndex == _quizTemplate.quizList.Count) ChallengeComplete();
         }
         else
         {

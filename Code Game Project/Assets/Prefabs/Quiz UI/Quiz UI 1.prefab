@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 7472590375641370301}
   - component: {fileID: -840892084683090189}
   m_Layer: 5
-  m_Name: Quiz UI
+  m_Name: Quiz UI 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1310,10 +1310,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dffdb7f358b114fad4947e60e935a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressedBtnNum: 0
   enemyChallenger: {fileID: 0}
+  _quizTemplate: {fileID: 11400000, guid: 1735f19c5a60447489e3921f1ff38209, type: 2}
   _imgEnemy: {fileID: 7472590374624430435}
   _buttonAnswersTMP: []
+  sc:
+  - name: 
+    x: 1
+    y: 2
+  - name: 
+    x: 3
+    y: 4
+  - name: 
+    x: 5
+    y: 6
+  x: 0
+  y: 0
 --- !u!1 &7472590375653792211
 GameObject:
   m_ObjectHideFlags: 0

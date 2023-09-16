@@ -24,10 +24,10 @@ public class MainBattle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    private void QuizChallengeEvent(object sender, GameMechanics.OnChallengeEvent e) 
+    public void QuizChallengeEvent(object sender, GameMechanics.OnChallengeEvent e) 
     {
         if (!_worldUI) return;
         _worldUI.gameObject.SetActive(false);
