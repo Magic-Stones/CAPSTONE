@@ -1314,18 +1314,6 @@ MonoBehaviour:
   _quizTemplate: {fileID: 11400000, guid: 1735f19c5a60447489e3921f1ff38209, type: 2}
   _imgEnemy: {fileID: 7472590374624430435}
   _buttonAnswersTMP: []
-  sc:
-  - name: 
-    x: 1
-    y: 2
-  - name: 
-    x: 3
-    y: 4
-  - name: 
-    x: 5
-    y: 6
-  x: 0
-  y: 0
 --- !u!1 &7472590375653792211
 GameObject:
   m_ObjectHideFlags: 0

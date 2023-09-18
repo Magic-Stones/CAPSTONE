@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DungeonDoors : MonoBehaviour
+public class DungeonEntryways : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyTrigger;
     private IEnemy _enemyAtb;

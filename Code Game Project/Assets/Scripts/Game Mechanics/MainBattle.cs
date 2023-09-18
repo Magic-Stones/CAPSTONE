@@ -18,7 +18,7 @@ public class MainBattle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _mechanics.OnQuizChallenge += QuizChallengeEvent;
+
     }
 
     // Update is called once per frame

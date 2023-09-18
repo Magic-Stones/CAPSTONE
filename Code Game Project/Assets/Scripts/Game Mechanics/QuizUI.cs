@@ -15,11 +15,12 @@ public class QuizUI : MonoBehaviour
 
     private bool _setDisplayQuiz = true;
 
-    [HideInInspector] public GameObject enemyChallenger;
     [SerializeField] private QuizUITemplate _quizTemplate;
     [SerializeField] private Image _imgEnemy;
     [SerializeField] private List<TextMeshProUGUI> _buttonAnswersTMP;
     private TextMeshProUGUI _questionTMP;
+    private GameObject _enemyChallenger;
+    private Player _player;
     private MainBattle _mainBattle;
 
     void Awake()
@@ -32,13 +33,15 @@ public class QuizUI : MonoBehaviour
         _buttonAnswersTMP.Add(transform.Find("Button 3").GetComponentInChildren<TextMeshProUGUI>());
         _buttonAnswersTMP.Add(transform.Find("Button 4").GetComponentInChildren<TextMeshProUGUI>());
 
+        _player = FindObjectOfType<Player>();
         _mainBattle = GetComponentInParent<MainBattle>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _imgEnemy.sprite = enemyChallenger.GetComponent<IEnemy>().GetSpriteRenderer.sprite;
+        _enemyChallenger = _player.GetChallenger;
+        _imgEnemy.sprite = _enemyChallenger.GetComponent<IEnemy>().GetSpriteRenderer.sprite;
     }
 
     // Update is called once per frame
@@ -82,7 +85,7 @@ public class QuizUI : MonoBehaviour
 
     private void ChallengeComplete()
     {
-        IEnemy enemyAtb = enemyChallenger.GetComponent<IEnemy>();
+        IEnemy enemyAtb = _enemyChallenger.GetComponent<IEnemy>();
         _mainBattle.ChallengeComplete(enemyAtb);
     }
 

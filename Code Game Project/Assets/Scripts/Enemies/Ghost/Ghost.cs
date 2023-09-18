@@ -42,9 +42,6 @@ public class Ghost : MonoBehaviour, IEnemy
     {
         _moveSpeed = _setMoveSpeed;
         _targetTransform = GameObject.FindGameObjectWithTag(TARGET_TAG).transform;
-        
-        QuizUI quiz = _quizSheet.GetComponent<QuizUI>();
-        quiz.enemyChallenger = gameObject;
     }
 
     // Update is called once per frame
