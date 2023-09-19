@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4141139435307917367}
-  - component: {fileID: 4141139435307917360}
+  - component: {fileID: 170008517925226965}
   - component: {fileID: 7427286022890380765}
   m_Layer: 0
   m_Name: Dungeon_Tileset_36
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 4141139436382218766}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4141139435307917360
+--- !u!212 &170008517925226965
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4141139436078483947}
-  - component: {fileID: 4141139436078483732}
+  - component: {fileID: 2156143527670997692}
   - component: {fileID: 4439835578085958760}
   m_Layer: 0
   m_Name: Dungeon_Tileset_37
@@ -177,7 +177,7 @@ Transform:
   m_Father: {fileID: 4141139436382218766}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4141139436078483732
+--- !u!212 &2156143527670997692
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4141139436090243440}
-  - component: {fileID: 4141139436090243441}
+  - component: {fileID: 843927006513669368}
   - component: {fileID: 5499471402780848340}
   m_Layer: 0
   m_Name: Dungeon_Tileset_56
@@ -288,7 +288,7 @@ Transform:
   m_Father: {fileID: 4141139435571546338}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4141139436090243441
+--- !u!212 &843927006513669368
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,7 +308,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -476,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4141139436561281365}
-  - component: {fileID: 4141139436561281366}
+  - component: {fileID: 2623108553314814757}
   - component: {fileID: 4311619634453560895}
   m_Layer: 0
   m_Name: Dungeon_Tileset_46
@@ -500,7 +500,7 @@ Transform:
   m_Father: {fileID: 4141139435571546338}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4141139436561281366
+--- !u!212 &2623108553314814757
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -520,7 +520,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
