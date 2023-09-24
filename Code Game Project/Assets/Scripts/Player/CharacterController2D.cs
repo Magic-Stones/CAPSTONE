@@ -7,6 +7,8 @@ public class CharacterController2D : MonoBehaviour
 {
     public float ExternalMoveSpeed { get; set; } = 10f;
     [SerializeField] private Vector2 _moveDirection;
+    private bool enableMovement = true;
+    public bool SetEnableMovement { set { enableMovement = value; } }
     private Rigidbody2D _rigidBody2D;   // Set Interpolate to "Interpolate"
 
     [SerializeField] private AnimationClip _idleRight, _idleLeft;
@@ -56,7 +58,8 @@ public class CharacterController2D : MonoBehaviour
 
     private void ProcessInput()
     {
-        _moveDirection = _inputMove.ReadValue<Vector2>();
+        if (enableMovement) _moveDirection = _inputMove.ReadValue<Vector2>();
+        else _moveDirection = Vector2.zero;
 
         if (_moveDirection.x > 0f) 
         {

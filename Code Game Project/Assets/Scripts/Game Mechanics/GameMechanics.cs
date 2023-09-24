@@ -11,17 +11,19 @@ public class GameMechanics : MonoBehaviour
         public GameObject quizSheet;
     }
 
+    private CharacterController2D _playerController2D;
     private MainBattle _mainBattle;
 
     void Awake()
     {
+        _playerController2D = FindObjectOfType<CharacterController2D>();
         _mainBattle = FindObjectOfType<MainBattle>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class GameMechanics : MonoBehaviour
 
     public void TriggerChallenge(GameObject insertQuiz) 
     {
+        _playerController2D.SetEnableMovement = false;
         OnQuizChallenge += _mainBattle.QuizChallengeEvent;
         OnQuizChallenge?.Invoke(this, new OnChallengeEvent { quizSheet = insertQuiz });
     }

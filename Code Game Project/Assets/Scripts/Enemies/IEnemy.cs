@@ -5,6 +5,6 @@ using UnityEngine;
 public interface IEnemy
 {
     public bool GetIsDefeated { get; }
-    public SpriteRenderer GetSpriteRenderer { get; }
+    public Sprite GetChallengePose { get; }
     void Death();
 }

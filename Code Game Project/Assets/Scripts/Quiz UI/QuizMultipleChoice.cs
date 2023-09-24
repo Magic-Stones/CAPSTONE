@@ -1,24 +1,25 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizUI : MonoBehaviour
+public class QuizMultipleChoice : MonoBehaviour, IQuizBackend
 {
     private int _quizIndex;
 
-    private int _pressedBtnNum;
-    private int _correctBtnNum;
+    private string _pressedBtnText;
+    private string _correctAnswer;
 
     private bool _setDisplayQuiz = true;
 
-    [SerializeField] private QuizUITemplate _quizTemplate;
-    [SerializeField] private Image _imgEnemy;
-    [SerializeField] private List<TextMeshProUGUI> _buttonAnswersTMP;
+    private int _quizTemplateIndex;
+    public int SetQuizTemplateIndex { set { _quizTemplateIndex = value; } }
+
+    [SerializeField] private MultipleChoiceTemplate _quizTemplate;
     private TextMeshProUGUI _questionTMP;
+    [SerializeField] private List<TextMeshProUGUI> _buttonAnswersTMP;
+    [SerializeField] private Image _imgEnemy;   // drag-drop Enemy.Image from editor
     private GameObject _enemyChallenger;
     private Player _player;
     private MainBattle _mainBattle;
@@ -40,8 +41,9 @@ public class QuizUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _quizTemplate = _mainBattle.GetTemplateMultipleChoice[_quizTemplateIndex];
         _enemyChallenger = _player.GetChallenger;
-        _imgEnemy.sprite = _enemyChallenger.GetComponent<IEnemy>().GetSpriteRenderer.sprite;
+        _imgEnemy.sprite = _enemyChallenger.GetComponent<IEnemy>().GetChallengePose;
     }
 
     // Update is called once per frame
@@ -56,13 +58,23 @@ public class QuizUI : MonoBehaviour
         {
             if (_setDisplayQuiz)
             {
-                _questionTMP.text = _quizTemplate.quizList[_quizIndex].question;
-                _buttonAnswersTMP[0].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_1;
-                _buttonAnswersTMP[1].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_2;
-                _buttonAnswersTMP[2].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_3;
-                _buttonAnswersTMP[3].text = _quizTemplate.quizList[_quizIndex].buttonAnswer_4;
+                int lastIndex = _buttonAnswersTMP.Count - 1;
+                while (lastIndex > 0)
+                {
+                    TextMeshProUGUI tempValue = _buttonAnswersTMP[lastIndex];
+                    int randomIndex = UnityEngine.Random.Range(0, lastIndex);
+                    _buttonAnswersTMP[lastIndex] = _buttonAnswersTMP[randomIndex];
+                    _buttonAnswersTMP[randomIndex] = tempValue;
+                    lastIndex--;
+                }
 
-                _correctBtnNum = _quizTemplate.quizList[_quizIndex].correctButtonNumber;
+                _questionTMP.text = _quizTemplate.quizList[_quizIndex].question;
+                _buttonAnswersTMP[0].text = _quizTemplate.quizList[_quizIndex].answer1;
+                _buttonAnswersTMP[1].text = _quizTemplate.quizList[_quizIndex].answer2;
+                _buttonAnswersTMP[2].text = _quizTemplate.quizList[_quizIndex].answer3;
+                _buttonAnswersTMP[3].text = _quizTemplate.quizList[_quizIndex].answer4;
+
+                _correctAnswer = _quizTemplate.quizList[_quizIndex].CorrectAnswer;
             }
             _setDisplayQuiz = false;
         }
@@ -70,7 +82,7 @@ public class QuizUI : MonoBehaviour
 
     private void CheckAnswer()
     {
-        if (_pressedBtnNum == _correctBtnNum)
+        if (_pressedBtnText.Equals(_correctAnswer))
         {
             _setDisplayQuiz = true;
 
@@ -91,28 +103,28 @@ public class QuizUI : MonoBehaviour
 
     public void ButtonPressed_1()
     {
-        _pressedBtnNum = 1;
+        _pressedBtnText = transform.Find("Button 1").GetComponentInChildren<TextMeshProUGUI>().text;
 
         CheckAnswer();
     }
 
     public void ButtonPressed_2()
     {
-        _pressedBtnNum = 2;
+        _pressedBtnText = transform.Find("Button 2").GetComponentInChildren<TextMeshProUGUI>().text;
 
         CheckAnswer();
     }
 
     public void ButtonPressed_3()
     {
-        _pressedBtnNum = 3;
+        _pressedBtnText = transform.Find("Button 3").GetComponentInChildren<TextMeshProUGUI>().text;
 
         CheckAnswer();
     }
 
     public void ButtonPressed_4()
     {
-        _pressedBtnNum = 4;
+        _pressedBtnText = transform.Find("Button 4").GetComponentInChildren<TextMeshProUGUI>().text;
 
         CheckAnswer();
     }

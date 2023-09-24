@@ -1,17 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MainBattle : MonoBehaviour
 {
+    [SerializeField] private List<MultipleChoiceTemplate> _templateMultipleChoice;
+    public List<MultipleChoiceTemplate> GetTemplateMultipleChoice { get { return _templateMultipleChoice; } }
+    [SerializeField] private List<FillBlanksTemplate> _templateFillBlanks;
+    public List<FillBlanksTemplate> GetTemplateFillBlanks { get { return _templateFillBlanks; } }
+
     private Transform _worldUI;
     private GameObject _quizUI;
+    private CharacterController2D _playerController2D;
     private GameMechanics _mechanics;
 
     void Awake() 
     {
         _worldUI = transform.Find("World UI");
+        _playerController2D = FindObjectOfType<CharacterController2D>();
         _mechanics = FindObjectOfType<GameMechanics>();
     }
 
@@ -27,6 +35,11 @@ public class MainBattle : MonoBehaviour
 
     }
 
+    public void EndEdit()
+    {
+
+    }
+
     public void QuizChallengeEvent(object sender, GameMechanics.OnChallengeEvent e) 
     {
         if (!_worldUI) return;
@@ -38,6 +51,7 @@ public class MainBattle : MonoBehaviour
 
     public void ChallengeComplete(IEnemy enemyChallenger)
     {
+        _playerController2D.SetEnableMovement = true;
         _mechanics.OnQuizChallenge -= QuizChallengeEvent;
 
         if (_quizUI) Destroy(_quizUI, 1f);

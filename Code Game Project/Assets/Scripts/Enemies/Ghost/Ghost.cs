@@ -11,6 +11,8 @@ public class Ghost : MonoBehaviour, IEnemy
     [SerializeField] private float _setMoveSpeed = 2f;
     private float _moveSpeed;
 
+    [SerializeField] private int _quizTemplateIndex;
+
     private Vector3 _targetDirection;
 
     private bool _enableMovement = true;
@@ -24,16 +26,17 @@ public class Ghost : MonoBehaviour, IEnemy
 
     [SerializeField] private AnimationClip _idleRight, _idleLeft;
     private Animator _animator;
+    [SerializeField] private Sprite _quizChallengePose;
+    public Sprite GetChallengePose { get { return _quizChallengePose; } }
+    private BoxCollider2D _box2D;
     private Rigidbody2D _rb2D;
-    private SpriteRenderer _spriteRenderer;
-    public SpriteRenderer GetSpriteRenderer { get { return _spriteRenderer; } }
     private GameMechanics _mechanics;
 
     void Awake() 
     {
         _animator = GetComponentInChildren<Animator>();
+        _box2D = GetComponent<BoxCollider2D>();
         _rb2D = GetComponent<Rigidbody2D>();
-        _spriteRenderer = transform.Find("Sprite").GetComponent<SpriteRenderer>();
         _mechanics = FindObjectOfType<GameMechanics>();
     }
 
@@ -42,6 +45,9 @@ public class Ghost : MonoBehaviour, IEnemy
     {
         _moveSpeed = _setMoveSpeed;
         _targetTransform = GameObject.FindGameObjectWithTag(TARGET_TAG).transform;
+
+        IQuizBackend quiz = _quizSheet.GetComponent<IQuizBackend>();
+        quiz.SetQuizTemplateIndex = _quizTemplateIndex;
     }
 
     // Update is called once per frame
@@ -74,6 +80,7 @@ public class Ghost : MonoBehaviour, IEnemy
     public void Death()
     {
         _isDefeated = true;
+        _box2D.enabled = false;
         Destroy(gameObject, 2f);
     }
 
