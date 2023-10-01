@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class MainBattle : MonoBehaviour
 {
-    [SerializeField] private List<MultipleChoiceTemplate> _templateMultipleChoice;
-    public List<MultipleChoiceTemplate> GetTemplateMultipleChoice { get { return _templateMultipleChoice; } }
-    [SerializeField] private List<FillBlanksTemplate> _templateFillBlanks;
-    public List<FillBlanksTemplate> GetTemplateFillBlanks { get { return _templateFillBlanks; } }
-
     private Transform _worldUI;
     private GameObject _quizUI;
     private CharacterController2D _playerController2D;

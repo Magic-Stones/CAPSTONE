@@ -11,8 +11,6 @@ public class Ghost : MonoBehaviour, IEnemy
     [SerializeField] private float _setMoveSpeed = 2f;
     private float _moveSpeed;
 
-    [SerializeField] private int _quizTemplateIndex;
-
     private Vector3 _targetDirection;
 
     private bool _enableMovement = true;
@@ -45,9 +43,6 @@ public class Ghost : MonoBehaviour, IEnemy
     {
         _moveSpeed = _setMoveSpeed;
         _targetTransform = GameObject.FindGameObjectWithTag(TARGET_TAG).transform;
-
-        IQuizBackend quiz = _quizSheet.GetComponent<IQuizBackend>();
-        quiz.SetQuizTemplateIndex = _quizTemplateIndex;
     }
 
     // Update is called once per frame

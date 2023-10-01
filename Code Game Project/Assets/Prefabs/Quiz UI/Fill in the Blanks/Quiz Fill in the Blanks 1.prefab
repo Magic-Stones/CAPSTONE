@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 7472590375641370301}
   - component: {fileID: 7686057121364790593}
   m_Layer: 5
-  m_Name: Quiz UI 2
+  m_Name: Quiz Fill in the Blanks 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

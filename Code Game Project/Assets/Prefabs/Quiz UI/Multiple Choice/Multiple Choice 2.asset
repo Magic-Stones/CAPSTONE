@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e946e5c32d2e440971fbdc165fe289, type: 3}
+  m_Name: Multiple Choice 2
+  m_EditorClassIdentifier: 
+  quizList:
+  - name: 
+    question: float ___ = 3.14f;
+    answer1: pi
+    answer2: message
+    answer3: balls
+    answer4: hasEnded
+  - name: 
+    question: double chance = ___;
+    answer1: 99.9
+    answer2: '"fifty-fifty"'
+    answer3: true
+    answer4: '''N'''
+  - name: 
+    question: Console._____("Write Console");
+    answer1: WriteLine
+    answer2: ReadLine
+    answer3: ReadKey
+    answer4: Beep
+  - name: 
+    question: ___ class Registration { ... }
+    answer1: public
+    answer2: private
+    answer3: protected
+    answer4: interface
+  - name: 
+    question: bool isTrue = ___;
+    answer1: false
+    answer2: '"true"'
+    answer3: '''F'''
+    answer4: 0

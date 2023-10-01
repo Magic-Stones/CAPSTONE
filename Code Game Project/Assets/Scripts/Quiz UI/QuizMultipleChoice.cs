@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizMultipleChoice : MonoBehaviour, IQuizBackend
+public class QuizMultipleChoice : MonoBehaviour
 {
     private int _quizIndex;
 
@@ -12,9 +12,6 @@ public class QuizMultipleChoice : MonoBehaviour, IQuizBackend
     private string _correctAnswer;
 
     private bool _setDisplayQuiz = true;
-
-    private int _quizTemplateIndex;
-    public int SetQuizTemplateIndex { set { _quizTemplateIndex = value; } }
 
     [SerializeField] private MultipleChoiceTemplate _quizTemplate;
     private TextMeshProUGUI _questionTMP;
@@ -41,7 +38,6 @@ public class QuizMultipleChoice : MonoBehaviour, IQuizBackend
     // Start is called before the first frame update
     void Start()
     {
-        _quizTemplate = _mainBattle.GetTemplateMultipleChoice[_quizTemplateIndex];
         _enemyChallenger = _player.GetChallenger;
         _imgEnemy.sprite = _enemyChallenger.GetComponent<IEnemy>().GetChallengePose;
     }
@@ -91,7 +87,7 @@ public class QuizMultipleChoice : MonoBehaviour, IQuizBackend
         }
         else
         {
-            Debug.Log("WRONG");
+            //Debug.Log("WRONG");
         }
     }
 

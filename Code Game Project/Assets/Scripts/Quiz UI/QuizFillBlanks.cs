@@ -4,16 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuizFillBlanks : MonoBehaviour, IQuizBackend
+public class QuizFillBlanks : MonoBehaviour
 {
+    private int _quizIndex;
     [SerializeField] private GameObject _inputFieldPrefab;
 
     private string _playerInput;
     private string _correctAnswer;
-
-    private int _quizIndex;
-    private int _quizTemplateIndex;
-    public int SetQuizTemplateIndex { set { _quizTemplateIndex = value; } }
 
     private bool _setDisplayQuiz = true;
 
@@ -34,7 +31,6 @@ public class QuizFillBlanks : MonoBehaviour, IQuizBackend
     // Start is called before the first frame update
     void Start()
     {
-        _quizTemplate = _mainBattle.GetTemplateFillBlanks[_quizTemplateIndex];
         _enemyChallenger = _player.GetChallenger;
         _imgEnemy.sprite = _enemyChallenger.GetComponent<IEnemy>().GetChallengePose;
     }
@@ -97,7 +93,7 @@ public class QuizFillBlanks : MonoBehaviour, IQuizBackend
             _quizIndex++;
             if (_quizIndex == _quizTemplate.quizList.Count) ChallengeComplete();
         }
-        else Debug.Log("Wrong Answer(s)!");
+        //else Debug.Log("Wrong Answer(s)!");
     }
 
     private void ChallengeComplete()
