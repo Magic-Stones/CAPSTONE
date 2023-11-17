@@ -36981,7 +36981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _generalUI: {fileID: 301992106}
   _settingsPanel: {fileID: 704998904}
-  _mainMenu: {fileID: 102900000, guid: 90656a69b8e2d834a94a1d2aa36e034d, type: 3}
 --- !u!1 &1634319678
 GameObject:
   m_ObjectHideFlags: 0
@@ -37516,6 +37515,7 @@ GameObject:
   - component: {fileID: 1936023356}
   - component: {fileID: 1936023359}
   - component: {fileID: 1936023358}
+  - component: {fileID: 1936023360}
   - component: {fileID: 1936023357}
   m_Layer: 5
   m_Name: Left Stick
@@ -37541,8 +37541,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 180, y: 180}
-  m_SizeDelta: {x: 90, y: 90}
+  m_AnchoredPosition: {x: 270, y: 180}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936023357
 MonoBehaviour:
@@ -37556,7 +37556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MovementRange: 100
+  m_MovementRange: 80
   m_ControlPath: <Gamepad>/leftStick
 --- !u!114 &1936023358
 MonoBehaviour:
@@ -37571,14 +37571,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.60784316, g: 0.6862745, b: 0.81960785, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37596,6 +37596,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936023355}
   m_CullTransparentMesh: 1
+--- !u!114 &1936023360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936023355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 10, y: -10}
+  m_UseGraphicAlpha: 1
 --- !u!4 &1938420396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4570048300313029778, guid: 74a926706f8966b42a642d96faff0c4b, type: 3}

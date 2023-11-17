@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1004788295
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 064a65e9d9d779646a9b9f5019a090d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -116,9 +116,10 @@ GameObject:
   - component: {fileID: 684779933661806822}
   - component: {fileID: 684779933661806823}
   - component: {fileID: 684779933661806820}
-  - component: {fileID: 684779933661806821}
   - component: {fileID: 381863567822475527}
+  - component: {fileID: 684779933661806821}
   - component: {fileID: 684779933661806817}
+  - component: {fileID: 6182043650976224326}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,6 +190,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &381863567822475527
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684779933661806842}
+  m_Enabled: 1
+  m_SortingLayerID: -1004788295
+  m_SortingLayer: 2
+  m_SortingOrder: 10
 --- !u!114 &684779933661806821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,17 +219,6 @@ MonoBehaviour:
   _walkRight: {fileID: 7400000, guid: 630e5eb53d8b4274283d9af21ce0e8e3, type: 2}
   _walkLeft: {fileID: 7400000, guid: 78d69b4edab45d5458444205561d3802, type: 2}
   _animatorSprite: {fileID: 684779933368318752}
---- !u!210 &381863567822475527
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 684779933661806842}
-  m_Enabled: 1
-  m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
-  m_SortingOrder: 10
 --- !u!114 &684779933661806817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +233,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   _challenger: {fileID: 0}
+--- !u!114 &6182043650976224326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684779933661806842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad67f25887d2ff48b0c1ae7772198d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

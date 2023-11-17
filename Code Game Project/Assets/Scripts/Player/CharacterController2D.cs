@@ -15,27 +15,27 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private AnimationClip _walkRight, _walkLeft;
     private int _directionIndex = 1;
 
-    private PlayerInputActions _inputActions;
-    private InputAction _inputMove;
-
     [SerializeField] private Animator _animatorSprite;
+
+    private GameControls _controls;
+    private InputAction _movement;
 
     void OnEnable()
     {
-        _inputMove = _inputActions.Player.Move;
-        _inputMove.Enable();
+        _movement = _controls.Player.Movement;
+        _movement.Enable();
     }
 
     void OnDisable()
     {
-        _inputMove.Disable();
+        _movement.Disable();
     }
 
     void Awake()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
 
-        _inputActions = new PlayerInputActions();
+        _controls = new GameControls();
     }
 
     // Start is called before the first frame updates
@@ -58,7 +58,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void ProcessInput()
     {
-        if (enableMovement) _moveDirection = _inputMove.ReadValue<Vector2>();
+        if (enableMovement) _moveDirection = _movement.ReadValue<Vector2>();
         else _moveDirection = Vector2.zero;
 
         if (_moveDirection.x > 0f) 

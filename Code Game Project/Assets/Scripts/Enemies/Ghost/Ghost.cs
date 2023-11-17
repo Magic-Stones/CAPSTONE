@@ -81,7 +81,7 @@ public class Ghost : MonoBehaviour, IEnemy
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.tag.Equals(TARGET_TAG))
+        if (collision.gameObject.tag.Equals(TARGET_TAG) && _quizSheet)
         {
             _mechanics.TriggerChallenge(_quizSheet);
             _enableMovement = false;

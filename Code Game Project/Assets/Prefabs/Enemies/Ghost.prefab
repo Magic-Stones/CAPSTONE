@@ -93,7 +93,7 @@ SortingGroup:
   m_GameObject: {fileID: 3577794064964173979}
   m_Enabled: 1
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
 --- !u!114 &3577794064964173983
 MonoBehaviour:
@@ -111,9 +111,9 @@ MonoBehaviour:
   _searchRange: 4
   _setMoveSpeed: 4
   _quizSheet: {fileID: 0}
-  _quizChallengePose: {fileID: 21300000, guid: 840fdfa39fdf38b4aafd4b33ed07885d, type: 3}
   _idleRight: {fileID: 7400000, guid: 5f6373f8d68338343bec262a655d42d0, type: 2}
   _idleLeft: {fileID: 7400000, guid: 20a1e1a3d3b175741aff19a8ead745a4, type: 2}
+  _quizChallengePose: {fileID: 21300000, guid: 840fdfa39fdf38b4aafd4b33ed07885d, type: 3}
 --- !u!1 &3577794066655545602
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,9 +185,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1004788295
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 62547f70d5e1f47498fcdcee71205204, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
