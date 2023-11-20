@@ -49,7 +49,7 @@ public class InventoryUI : MonoBehaviour
                 itemSlot.anchoredPosition = new Vector2(x * _itemSlotCellSize, y * _itemSlotCellSize);
                 itemSlot.GetComponent<ItemSlot>().inventoryItem = inventoryItem;
                 x++;
-                if (x > 5)
+                if (x == 5)
                 {
                     y--;
                     x = 0;

@@ -35,22 +35,22 @@ public class MainBattle : MonoBehaviour
 
     }
 
-    public void QuizChallengeEvent(object sender, GameMechanics.OnChallengeEvent e) 
+    public void QuizChallengeEvent(object sender, GameMechanics.OnQuizEventHandler e) 
     {
         if (!_worldUI) return;
         _worldUI.gameObject.SetActive(false);
 
-        _quizUI = Instantiate(e.quizSheet, transform);
+        //_quizUI = Instantiate(e.TemplateData, transform);
         _quizUI.transform.SetParent(transform);
     }
 
     public void ChallengeComplete(IEnemy enemyChallenger)
     {
         _playerController2D.SetEnableMovement = true;
-        _mechanics.OnQuizChallenge -= QuizChallengeEvent;
+        _mechanics.OnQuizEvent -= QuizChallengeEvent;
 
         if (_quizUI) Destroy(_quizUI, 1f);
         _worldUI.gameObject.SetActive(true);
-        enemyChallenger.Death();
+        //enemyChallenger.OnDefeated();
     }
 }

@@ -11,6 +11,8 @@ public class ItemSlot : MonoBehaviour
     public string GetItemName { get { return _itemName; } }
     private string _itemDescription;
     public string GetItemDescription { get { return _itemDescription; } }
+    private string _quizAnswer;
+    public string GetQuizAnswer { get { return _quizAnswer; } }
 
     private float _selectedItemEffectDistance = 7.5f;
     private Outline _outline;
@@ -32,6 +34,7 @@ public class ItemSlot : MonoBehaviour
         _itemImage.sprite = inventoryItem.GetItemData.itemIcon;
         _itemName = inventoryItem.GetItemData.itemName;
         _itemDescription = inventoryItem.GetItemData.itemDescription;
+        _quizAnswer = inventoryItem.GetItemData.quizAnswer;
 
         _outline.effectDistance = Vector2.zero;
         gameObject.name = _itemName;

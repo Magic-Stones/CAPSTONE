@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IEnemy
 {
+    public QuizTemplate GetQuizTemplate { get; }
     public bool GetIsDefeated { get; }
     public Sprite GetChallengePose { get; }
-    void Death();
+    public GameObject GetEnemyObject { get; }
 }

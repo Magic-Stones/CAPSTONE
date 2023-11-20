@@ -12,9 +12,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _challenger;
     public GameObject GetChallenger { get { return _challenger; } }
 
-    private event Action _onEventInventory;
-    public Action OnInventoryCallback { set { _onEventInventory = value; } }
-
     private CharacterController2D _controller2D;
     private Inventory _invetory;
     public Inventory GetInventory { get { return _invetory; } }
@@ -35,22 +32,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            _onEventInventory?.Invoke();
-        }
+
     }
 
     public Vector3 GetPosition() 
     {
         return transform.position;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag.Equals("Enemy"))
-        {
-            _challenger = collision.gameObject;
-        }
     }
 }

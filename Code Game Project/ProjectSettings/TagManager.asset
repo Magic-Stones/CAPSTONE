@@ -7,11 +7,14 @@ TagManager:
   - Enemy
   - TextInput
   - Item
+  - GameManager
+  - UI
+  - Quiz
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grid
   - Water
   - UI
   - 

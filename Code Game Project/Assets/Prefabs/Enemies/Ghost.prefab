@@ -34,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 3577794066655545605}
   - {fileID: 7040002682567101341}
+  - {fileID: 1594600236000007651}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,9 +111,13 @@ MonoBehaviour:
   healthPoints: 3
   _searchRange: 4
   _setMoveSpeed: 4
-  _quizSheet: {fileID: 0}
+  _enableMovement: 0
+  _quizTemplate: {fileID: 0}
+  _lootRewards: []
+  _lootdropPoint: {fileID: 1594600236000007651}
   _idleRight: {fileID: 7400000, guid: 5f6373f8d68338343bec262a655d42d0, type: 2}
   _idleLeft: {fileID: 7400000, guid: 20a1e1a3d3b175741aff19a8ead745a4, type: 2}
+  _animExorcised: {fileID: 7400000, guid: e40f0da4c225ecd479ec94774cc249f4, type: 2}
   _quizChallengePose: {fileID: 21300000, guid: 840fdfa39fdf38b4aafd4b33ed07885d, type: 3}
 --- !u!1 &3577794066655545602
 GameObject:
@@ -230,7 +235,7 @@ GameObject:
   - component: {fileID: 7040002682567101341}
   - component: {fileID: 5146834110351763947}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -303,3 +308,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7467251023576555988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594600236000007651}
+  m_Layer: 0
+  m_Name: Lootdrop Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594600236000007651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467251023576555988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3577794064964173978}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
