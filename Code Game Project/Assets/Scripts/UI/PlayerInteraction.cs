@@ -10,7 +10,12 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private ItemData _itemData;
 
     private GameObject _nearbyEnemy;
+    private GameObject _nearbyChest;
     [SerializeField] private QuizTemplate _quizTemplate;
+
+    private GameObject _nearbyEntryway;
+
+    [SerializeField] private ItemData _dungeonKeyData;
 
     private string _defaultInteractText;
 
@@ -72,6 +77,42 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    public void ContainNearbyChest(GameObject nearbyChest)
+    {
+        _nearbyChest = nearbyChest;
+
+        if (_nearbyChest)
+        {
+            _quizTemplate = nearbyChest.GetComponent<DungeonChest>().GetQuizTemplate;
+            _textInteract.text = "Unlock";
+            _button.interactable = true;
+        }
+        else
+        {
+            _textInteract.text = _defaultInteractText;
+            _button.interactable = false;
+        }
+    }
+
+    public void ContainNearbyEntryway(GameObject nearbyEntryway)
+    {
+        _nearbyEntryway = nearbyEntryway;
+
+        if (_nearbyEntryway)
+        {
+            _textInteract.text = "Open";
+
+            if (Player.Instance.GetInventory.GetItemDictionary.ContainsKey(_dungeonKeyData))
+                _button.interactable = true;
+            else _button.interactable = false;
+        }
+        else
+        {
+            _textInteract.text = _defaultInteractText;
+            _button.interactable = false;
+        }
+    }
+
     public void CollectItem()
     {
         if (!_nearbyItem) return;
@@ -85,5 +126,19 @@ public class PlayerInteraction : MonoBehaviour
         if (!_nearbyEnemy) return;
 
         _mechanics.TriggerChallenge(_nearbyEnemy, _quizTemplate);
+    }
+
+    public void UnlockChest()
+    {
+        if (!_nearbyChest) return;
+
+        _mechanics.TriggerChallenge(_nearbyChest, _quizTemplate);
+    }
+
+    public void OpenEntryway()
+    {
+        if (!_nearbyEntryway) return;
+
+        _nearbyEntryway.GetComponent<DungeonEntryways>().UnlockEntryway();
     }
 }

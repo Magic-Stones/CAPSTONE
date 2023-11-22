@@ -9,18 +9,19 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float _moveSpeed = 1f;
 
-    [SerializeField] private GameObject _challenger;
-    public GameObject GetChallenger { get { return _challenger; } }
-
     private CharacterController2D _controller2D;
-    private Inventory _invetory;
-    public Inventory GetInventory { get { return _invetory; } }
+    private Inventory _inventory;
+    public Inventory GetInventory { get { return _inventory; } }
+
+    private PlayerInteraction _playerInteraction;
 
     void Awake()
     {
         Instance = this;
         _controller2D = GetComponent<CharacterController2D>();
-        _invetory = GetComponent<Inventory>();
+        _inventory = GetComponent<Inventory>();
+
+        _playerInteraction = GameObject.Find("Button - Interact").GetComponent<PlayerInteraction>();
     }
 
     // Start is called before the first frame update
@@ -38,5 +39,22 @@ public class Player : MonoBehaviour
     public Vector3 GetPosition() 
     {
         return transform.position;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Entryway"))
+        {
+            GameObject root = collision.transform.parent.parent.gameObject;
+            _playerInteraction.ContainNearbyEntryway(root);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Entryway"))
+        {
+            _playerInteraction.ContainNearbyEntryway(null);
+        }
     }
 }

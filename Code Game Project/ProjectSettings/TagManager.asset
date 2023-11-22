@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - TextInput
   - Item
   - GameManager
   - UI
   - Quiz
+  - Entryway
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,6 @@ public class QuizUI : MonoBehaviour
     {
         _answerBox.SetActive(false);
         _btnRunCode.interactable = false;
-        //DisplayQuiz();
     }
 
     // Update is called once per frame

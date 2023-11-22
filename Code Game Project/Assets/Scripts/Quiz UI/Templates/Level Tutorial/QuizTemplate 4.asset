@@ -10,15 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62a889d1de46dab40b6900a0b48d81e0, type: 3}
-  m_Name: QuizTemplate 3
+  m_Name: QuizTemplate 4
   m_EditorClassIdentifier: 
   _quizList:
   - name: 
-    _question: ___ letter = "N";
-    _correctAnswer: char
-  - name: 
-    _question: public ___ totalPrice = 4.20;
-    _correctAnswer: double
-  - name: 
-    _question: string college = ___;
-    _correctAnswer: STI
+    _question: bool isThisGameFun = ___;
+    _correctAnswer: false

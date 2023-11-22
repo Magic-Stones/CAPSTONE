@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7990112012131099620}
   m_Layer: 0
   m_Name: Dungeon_Tileset_56
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 220727825, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 2246714020729485144}
   m_Layer: 0
   m_Name: Dungeon_Tileset_67
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 969802875, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16af924bd312ccb4f829c923e2991daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyTrigger: {fileID: 0}
+  _isLocked: 1
 --- !u!1 &2002079766396838500
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 1829987186447494415}
   m_Layer: 0
   m_Name: Dungeon_Tileset_46
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +362,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 263077229, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 5018027967806623469}
   m_Layer: 0
   m_Name: Dungeon_Tileset_66
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +539,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: -2013031008, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

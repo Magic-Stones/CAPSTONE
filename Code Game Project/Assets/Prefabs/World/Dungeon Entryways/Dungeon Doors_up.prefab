@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4567950340297804458}
   m_Layer: 0
   m_Name: Dungeon_Tileset_58
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ SortingGroup:
   m_GameObject: {fileID: 4164948538529815346}
   m_Enabled: 1
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
 --- !u!114 &5375815942565618434
 MonoBehaviour:
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16af924bd312ccb4f829c923e2991daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyTrigger: {fileID: 0}
+  _isLocked: 1
 --- !u!1 &4164948538788552099
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 6179499690065156819}
   m_Layer: 0
   m_Name: Dungeon_Tileset_36
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 6791155556673079381}
   m_Layer: 0
   m_Name: Dungeon_Tileset_37
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 6560351363076253625}
   m_Layer: 0
   m_Name: Dungeon_Tileset_57
-  m_TagString: Untagged
+  m_TagString: Entryway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

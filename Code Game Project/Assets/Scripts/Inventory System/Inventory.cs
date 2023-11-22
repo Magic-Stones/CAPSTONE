@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private List<InventoryItem> _inventory;
     public List<InventoryItem> GetInventoryList { get { return _inventory; } }
     private Dictionary<ItemData, InventoryItem> _itemDictionary;
+    public Dictionary<ItemData, InventoryItem> GetItemDictionary { get { return _itemDictionary; } }
 
     private event Action _onInventoryUpdate;
     public Action OnInventoryUpdateCallback { set { _onInventoryUpdate = value; } }

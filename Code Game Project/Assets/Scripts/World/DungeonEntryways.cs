@@ -4,35 +4,30 @@ using UnityEngine;
 
 public class DungeonEntryways : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyTrigger;
-    private IEnemy _enemyAtb;
-
-    private bool _isDefeated;
+    [SerializeField] private bool _isLocked = true;
+    public bool GetIsLocked { get { return _isLocked; } }
 
     private Animator _animator;
 
     void Awake()
     {
-        _enemyAtb = _enemyTrigger.GetComponent<IEnemy>();
         _animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetAnimator();
+        if (!_isLocked) _animator.SetBool("IsOpen", !_isLocked);
     }
 
-    private void SetAnimator()
+    public void UnlockEntryway()
     {
-        _isDefeated = _enemyAtb.GetIsDefeated;
-
-        _animator.SetBool("IsOpen", _isDefeated);
+        _isLocked = false;
     }
 }

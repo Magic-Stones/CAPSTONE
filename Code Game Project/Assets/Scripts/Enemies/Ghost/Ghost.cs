@@ -6,18 +6,16 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour, IEnemy
 {
-    public int healthPoints = 3;
+    [SerializeField] private int _healthPoints;
+    public int SetHealthPoints { set { _healthPoints = value; } }
 
     [SerializeField] private float _searchRange = 3f;
     [SerializeField] private float _setMoveSpeed = 2f;
     private float _moveSpeed;
 
-    private Vector3 _targetDirection;
-
     [SerializeField] private bool _enableMovement = true;
-
+    private Vector3 _targetDirection;
     private bool _isDefeated = false;
-    public bool GetIsDefeated { get { return _isDefeated; } }
 
     private const string TARGET_TAG = "Player";
     private Transform _targetTransform;
@@ -26,8 +24,6 @@ public class Ghost : MonoBehaviour, IEnemy
     public QuizTemplate GetQuizTemplate { get { return _quizTemplate; } }
     [SerializeField] private List<GameObject> _lootRewards;
     [SerializeField] private Transform _lootdropPoint;
-
-    public GameObject GetEnemyObject { get { return gameObject; } }
 
     [SerializeField] private AnimationClip _idleRight, _idleLeft, _animExorcised;
     private Animator _animator;
@@ -97,7 +93,7 @@ public class Ghost : MonoBehaviour, IEnemy
         }
     }
 
-    public void OnDefeated(object sender, GameMechanics.OnQuizCompletedEventHandler completedEvent)
+    private void OnDefeated(object sender, GameMechanics.OnQuizCompletedEventHandler completedEvent)
     {
         if (!completedEvent.EnemyChallenger.Equals(gameObject)) return;
 
@@ -108,7 +104,7 @@ public class Ghost : MonoBehaviour, IEnemy
         Invoke("Death", _animExorcised.length);
     }
 
-    public void Death()
+    private void Death()
     {
         DropLootRewards();
         _mechanics.OnQuizCompletedEvent -= OnDefeated;
