@@ -7,13 +7,18 @@ public class Player : MonoBehaviour
 {
     public static Player Instance {  get; private set; }
 
+    [SerializeField] private int _laptopEnergy = 5;
+    public int GetLaptopEnergy { get { return _laptopEnergy; } }
     [SerializeField] private float _moveSpeed = 1f;
 
-    private CharacterController2D _controller2D;
     private Inventory _inventory;
     public Inventory GetInventory { get { return _inventory; } }
 
+    public delegate void EventDelegate();
+    public static event EventDelegate OnLaptopOutOfPower;
+
     private PlayerInteraction _playerInteraction;
+    private CharacterController2D _controller2D;
 
     void Awake()
     {
@@ -28,6 +33,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _controller2D.ExternalMoveSpeed = _moveSpeed;
+        OnLaptopOutOfPower += LaptopOutOfPower;
     }
 
     // Update is called once per frame
@@ -36,9 +42,20 @@ public class Player : MonoBehaviour
 
     }
 
-    public Vector3 GetPosition() 
+    public void TakeDamage() 
     {
-        return transform.position;
+        _laptopEnergy--;
+
+        if (_laptopEnergy < 0)
+        {
+            OnLaptopOutOfPower?.Invoke();
+            return;
+        }
+    }
+
+    public void LaptopOutOfPower()
+    {
+        Debug.Log("OUT OF POWER!");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,10 @@ public class QuizUI : MonoBehaviour
     private GameObject _answerBox;
     private Button _btnRunCode;
 
-    private UIManager _uiManager;
+    public delegate void EventDelegate();
+    private event EventDelegate _onWrongAnswer;
+
+    private LaptopEnergy _laptopEnergy;
     private GameMechanics _mechanics;
 
     void Awake()
@@ -29,7 +33,7 @@ public class QuizUI : MonoBehaviour
         _answerBox = transform.Find("Answer Box").gameObject;
         _btnRunCode = transform.Find("Button - Run the code").GetComponent<Button>();
 
-        _uiManager = GetComponentInParent<UIManager>();
+        _laptopEnergy = GameObject.Find("Laptop Energy").GetComponent<LaptopEnergy>();
         _mechanics = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMechanics>();
     }
 
@@ -48,7 +52,16 @@ public class QuizUI : MonoBehaviour
 
     void OnEnable()
     {
+        _onWrongAnswer += Player.Instance.TakeDamage;
+        _onWrongAnswer += _laptopEnergy.RefreshIcons;
+
         DisplayQuiz();
+    }
+
+    void OnDisable()
+    {
+        _onWrongAnswer -= Player.Instance.TakeDamage;
+        _onWrongAnswer -= _laptopEnergy.RefreshIcons;
     }
 
     public void SetupQuiz(GameObject enemy, QuizTemplate quizTemplate)
@@ -92,7 +105,7 @@ public class QuizUI : MonoBehaviour
             _questionIndex++;
             DisplayQuiz();
         }
-        else { Debug.Log("WRONG!"); }
+        else { _onWrongAnswer?.Invoke(); }
     }
 
     private void ChallengeComplete()
