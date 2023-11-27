@@ -8,12 +8,16 @@ public class LaptopEnergy : MonoBehaviour
     [SerializeField] private Transform _laptopEnergyContainer;
 
     [SerializeField] private float _laptopEnergyIconCellSize = 10f;
-    private int x = 0;
-    private int y = 0;
+
+    private UIManager _uiManager;
+    private GameMechanics _mechanics;
 
     void Awake()
     {
         _laptopEnergyContainer = transform.Find("Laptop Energy Container");
+
+        _uiManager = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
+        _mechanics = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMechanics>();
     }
 
     // Start is called before the first frame update
@@ -30,6 +34,14 @@ public class LaptopEnergy : MonoBehaviour
 
     public void RefreshIcons()
     {
+        int x = 0;
+        int y = 0;
+
+        foreach (Transform icon in _laptopEnergyContainer)
+        {
+            Destroy(icon.gameObject);
+        }
+
         for (int i = 0; i < Player.Instance.GetLaptopEnergy; i++)
         {
             RectTransform laptopEnergyIcon = 
@@ -42,5 +54,17 @@ public class LaptopEnergy : MonoBehaviour
                 x = 0;
             }
         }
+    }
+
+    public void QuizEventRelocate()
+    {
+        gameObject.transform.SetParent(_uiManager.GetQuizUI.transform);
+        _uiManager.GetScoreDisplay.transform.SetParent(_uiManager.GetQuizUI.transform.Find("Text - Your Score"));
+    }
+
+    public void ReturnToMainUI()
+    {
+        gameObject.transform.SetParent(_uiManager.GetMainUI.transform);
+        _uiManager.GetScoreDisplay.transform.SetParent(_uiManager.GetMainUI.transform.Find("Text - Your Score"));
     }
 }

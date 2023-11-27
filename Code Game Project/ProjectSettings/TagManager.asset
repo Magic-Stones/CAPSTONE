@@ -10,6 +10,7 @@ TagManager:
   - UI
   - Quiz
   - Entryway
+  - DungeonChest
   layers:
   - Default
   - TransparentFX

@@ -28,7 +28,11 @@ public class DungeonChest : MonoBehaviour, IEnemy
     // Start is called before the first frame update
     void Start()
     {
-        _mechanics.OnQuizCompletedEvent += OnUnlocked;
+        foreach (QuizTemplate.SerializedQuiz quiz in _quizTemplate.GetQuizList)
+        {
+            quiz.GetExtraInfo.questionPassed = false;
+            _mechanics.GetQuestionList.Add(quiz);
+        }
     }
 
     // Update is called once per frame
@@ -50,13 +54,19 @@ public class DungeonChest : MonoBehaviour, IEnemy
         }
     }
 
+    public void OnQuizStart()
+    {
+        _mechanics.OnQuizCompletedEvent += OnUnlocked;
+        _mechanics.OnQuizLeaveEvent += OnUndefeated;
+    }
+
     private void OnUnlocked(object sender, GameMechanics.OnQuizCompletedEventHandler completedEvent)
     {
         if (!completedEvent.EnemyChallenger.Equals(gameObject)) return;
 
         _box2D.enabled = false;
 
-        Invoke("UnlockChest", 1f);
+        Invoke(nameof(UnlockChest), 1f);
     }
 
     private void UnlockChest()
@@ -64,6 +74,14 @@ public class DungeonChest : MonoBehaviour, IEnemy
         DropLootRewards();
         _mechanics.OnQuizCompletedEvent -= OnUnlocked;
         Destroy(gameObject);
+    }
+
+    private void OnUndefeated(object sender, GameMechanics.OnQuizLeaveEventHandler leaveEvent)
+    {
+        if (!leaveEvent.EnemyChallenger.Equals(gameObject)) return;
+
+        _mechanics.OnQuizCompletedEvent -= OnUnlocked;
+        _mechanics.OnQuizLeaveEvent -= OnUndefeated;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

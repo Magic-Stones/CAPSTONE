@@ -14,6 +14,10 @@ public class QuizUI : MonoBehaviour
     private string _correctAnswer;
     private string _submittedAnswer;
 
+    private GameObject _popUps;
+    private GameObject _popUpCorrect;
+    private GameObject _popUpWrong;
+
     private GameObject _enemyChallenger;
     private TextMeshProUGUI _questionTMP;
     private Image _imgEnemy;
@@ -28,6 +32,10 @@ public class QuizUI : MonoBehaviour
 
     void Awake()
     {
+        _popUps = GameObject.Find("IMG Player").transform.GetChild(0).gameObject;
+        _popUpCorrect = _popUps.transform.GetChild(0).gameObject;
+        _popUpWrong = _popUps.transform.GetChild(1).gameObject;
+
         _questionTMP = transform.Find("Quiz Box").GetComponentInChildren<TextMeshProUGUI>();
         _imgEnemy = transform.Find("Enemy").GetComponentInChildren<Image>();
         _answerBox = transform.Find("Answer Box").gameObject;
@@ -74,6 +82,7 @@ public class QuizUI : MonoBehaviour
     private void DisplayQuiz()
     {
         if (!_enemyChallenger) return;
+        if (!_quizTemplate) return;
 
         if (_questionIndex < _quizTemplate.GetQuizList.Count)
         {
@@ -102,10 +111,34 @@ public class QuizUI : MonoBehaviour
     {
         if (_submittedAnswer.Equals(_correctAnswer))
         {
+            if (!_quizTemplate.GetQuizList[_questionIndex].GetExtraInfo.questionPassed)
+            {
+                _quizTemplate.GetQuizList[_questionIndex].GetExtraInfo.questionPassed = true;
+                _mechanics.UpdateScore(1);
+            }
+
+            _popUpCorrect.SetActive(true);
+            _popUpWrong.SetActive(false);
+            _popUps.GetComponent<Animator>().SetTrigger("Pop up");
+
             _questionIndex++;
             DisplayQuiz();
         }
-        else { _onWrongAnswer?.Invoke(); }
+        else 
+        {
+            _popUpWrong.SetActive(true);
+            _popUpCorrect.SetActive(false);
+            _popUps.GetComponent<Animator>().SetTrigger("Pop up");
+
+            _onWrongAnswer?.Invoke();
+        }
+    }
+
+    public void LeaveQuiz()
+    {
+        ResetQuiz();
+        _onWrongAnswer?.Invoke();
+        _mechanics.LeaveChallenge(_enemyChallenger);
     }
 
     private void ChallengeComplete()

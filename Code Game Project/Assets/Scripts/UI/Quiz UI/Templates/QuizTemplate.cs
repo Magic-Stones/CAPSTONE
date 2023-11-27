@@ -17,6 +17,17 @@ public class QuizTemplate : ScriptableObject
 
         [SerializeField] private string _correctAnswer;
         public string GetCorrectAnswer { get { return _correctAnswer; } }
+
+        [SerializeField] private int _addPoints;
+        public int GetAddPoints { get { return _addPoints; } }
+
+        [Serializable]
+        public class ExtraInformation
+        {
+            public bool questionPassed = false;
+        }
+        [SerializeField] private ExtraInformation _extraInformation;
+        public ExtraInformation GetExtraInfo { get { return _extraInformation; } }
     }
 
     [SerializeField] private List<SerializedQuiz> _quizList;

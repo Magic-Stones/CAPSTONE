@@ -48,9 +48,14 @@ public class Ghost : MonoBehaviour, IEnemy
     // Start is called before the first frame update
     void Start()
     {
+        foreach (QuizTemplate.SerializedQuiz quiz in _quizTemplate.GetQuizList)
+        {
+            quiz.GetExtraInfo.questionPassed = false;
+            _mechanics.GetQuestionList.Add(quiz);
+        }
+
         _moveSpeed = _setMoveSpeed;
         _targetTransform = GameObject.FindGameObjectWithTag(TARGET_TAG).transform;
-        _mechanics.OnQuizCompletedEvent += OnDefeated;
     }
 
     // Update is called once per frame
@@ -93,6 +98,12 @@ public class Ghost : MonoBehaviour, IEnemy
         }
     }
 
+    public void OnQuizStart()
+    {
+        _mechanics.OnQuizCompletedEvent += OnDefeated;
+        _mechanics.OnQuizLeaveEvent += OnUndefeated;
+    }
+
     private void OnDefeated(object sender, GameMechanics.OnQuizCompletedEventHandler completedEvent)
     {
         if (!completedEvent.EnemyChallenger.Equals(gameObject)) return;
@@ -100,8 +111,9 @@ public class Ghost : MonoBehaviour, IEnemy
         _isDefeated = true;
         _box2D.enabled = false;
 
+        _mechanics.OnQuizLeaveEvent -= OnUndefeated;
         _animator.Play(_animExorcised.name);
-        Invoke("Death", _animExorcised.length);
+        Invoke(nameof(Death), _animExorcised.length);
     }
 
     private void Death()
@@ -109,6 +121,14 @@ public class Ghost : MonoBehaviour, IEnemy
         DropLootRewards();
         _mechanics.OnQuizCompletedEvent -= OnDefeated;
         Destroy(gameObject);
+    }
+
+    private void OnUndefeated(object sender, GameMechanics.OnQuizLeaveEventHandler leaveEvent)
+    {
+        if (!leaveEvent.EnemyChallenger.Equals(gameObject)) return;
+
+        _mechanics.OnQuizCompletedEvent -= OnDefeated;
+        _mechanics.OnQuizLeaveEvent -= OnUndefeated;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) 

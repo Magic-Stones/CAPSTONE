@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int _laptopEnergy = 5;
     public int GetLaptopEnergy { get { return _laptopEnergy; } }
     [SerializeField] private float _moveSpeed = 1f;
+    public int score = 0;
 
     private Inventory _inventory;
     public Inventory GetInventory { get { return _inventory; } }
@@ -19,14 +20,16 @@ public class Player : MonoBehaviour
 
     private PlayerInteraction _playerInteraction;
     private CharacterController2D _controller2D;
+    private GameMechanics _mechanics;
 
     void Awake()
     {
         Instance = this;
-        _controller2D = GetComponent<CharacterController2D>();
         _inventory = GetComponent<Inventory>();
+        _controller2D = GetComponent<CharacterController2D>();
 
         _playerInteraction = GameObject.Find("Button - Interact").GetComponent<PlayerInteraction>();
+        _mechanics = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMechanics>();
     }
 
     // Start is called before the first frame update
@@ -46,7 +49,7 @@ public class Player : MonoBehaviour
     {
         _laptopEnergy--;
 
-        if (_laptopEnergy < 0)
+        if (_laptopEnergy <= 0)
         {
             OnLaptopOutOfPower?.Invoke();
             return;
@@ -55,7 +58,7 @@ public class Player : MonoBehaviour
 
     public void LaptopOutOfPower()
     {
-        Debug.Log("OUT OF POWER!");
+        _mechanics.LoseGame();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -64,6 +67,11 @@ public class Player : MonoBehaviour
         {
             GameObject root = collision.transform.parent.parent.gameObject;
             _playerInteraction.ContainNearbyEntryway(root);
+        }
+
+        if (collision.collider.name.Equals("Game Win Trigger"))
+        {
+            _mechanics.WinGame();
         }
     }
 
