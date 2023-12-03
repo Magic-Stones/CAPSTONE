@@ -48,6 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: CameraBounds
+    uniqueID: 1736010511
+    locked: 0
   - name: Grid
     uniqueID: 2456479573
     locked: 0

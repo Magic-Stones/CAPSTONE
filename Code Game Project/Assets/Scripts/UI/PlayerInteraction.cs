@@ -140,5 +140,6 @@ public class PlayerInteraction : MonoBehaviour
         if (!_nearbyEntryway) return;
 
         _nearbyEntryway.GetComponent<DungeonEntryways>().UnlockEntryway();
+        Player.Instance.GetInventory.RemoveItem(_dungeonKeyData);
     }
 }

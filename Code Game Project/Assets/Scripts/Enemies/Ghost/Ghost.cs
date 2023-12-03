@@ -48,6 +48,8 @@ public class Ghost : MonoBehaviour, IEnemy
     // Start is called before the first frame update
     void Start()
     {
+        if (!_quizTemplate) gameObject.SetActive(false);
+
         foreach (QuizTemplate.SerializedQuiz quiz in _quizTemplate.GetQuizList)
         {
             quiz.GetExtraInfo.questionPassed = false;

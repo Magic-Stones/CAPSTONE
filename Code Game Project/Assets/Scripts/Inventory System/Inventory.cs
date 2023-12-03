@@ -59,5 +59,7 @@ public class Inventory : MonoBehaviour
                 _itemDictionary.Remove(itemData);
             }
         }
+
+        _onInventoryUpdate?.Invoke();
     }
 }
