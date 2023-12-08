@@ -8,7 +8,7 @@ public class ItemSelection : MonoBehaviour
 {
     [Header("Item Display")]
     [SerializeField] private Image _itemDisplayImage;
-    private bool _itemImageFullAlpha = false;
+    private Color _itemImageColor;
     [SerializeField] private TextMeshProUGUI _itemDisplayName;
 
     [Header("Item Description")]
@@ -31,9 +31,10 @@ public class ItemSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _itemDisplayImage.sprite = null;
-        _itemDisplayName.text = "";
-        _itemDescription.text = "";
+        _itemImageColor = _itemDisplayImage.color;
+        ResetDisplay();
+
+        Vector2 vec = new Vector2(2f, 2f);
     }
 
     // Update is called once per frame
@@ -44,47 +45,50 @@ public class ItemSelection : MonoBehaviour
 
     public void SetSelectedItem(ItemSlot itemSlot)
     {
-        if (_itemSlot && _itemSlot.gameObject != itemSlot.gameObject)
+        if (!itemSlot)
         {
-            _itemSlot.DeselectItem();
+            ResetDisplay();
+            return;
+        }
 
+        if (!_initializedSelectedItem)
+        {
             _itemSlot = itemSlot;
-
-            _itemDisplayImage.sprite = _itemSlot.GetItemImage.sprite;
-            if (!_itemImageFullAlpha)
-            {
-                Color itemImageColor = _itemDisplayImage.color;
-                itemImageColor.a = 1f;
-                _itemDisplayImage.color = itemImageColor;
-                _itemImageFullAlpha = true;
-            }
-
-            _itemDisplayName.text = _itemSlot.GetItemName;
-            _itemDescription.text = _itemSlot.GetItemDescription;
+            SetItemDisplay();
+            _initializedSelectedItem = true;
         }
         else
         {
-            if (_initializedSelectedItem) return;
-
+            _itemSlot.DeselectItem();
             _itemSlot = itemSlot;
+            SetItemDisplay();
+        }
 
+        void SetItemDisplay()
+        {
             _itemDisplayImage.sprite = _itemSlot.GetItemImage.sprite;
-            if (!_itemImageFullAlpha)
-            {
-                Color itemImageColor = _itemDisplayImage.color;
-                itemImageColor.a = 1f;
-                _itemDisplayImage.color = itemImageColor;
-                _itemImageFullAlpha = true;
-            }
+            _itemImageColor.a = 1f;
+            _itemDisplayImage.color = _itemImageColor;
 
             _itemDisplayName.text = _itemSlot.GetItemName;
             _itemDescription.text = _itemSlot.GetItemDescription;
-            _initializedSelectedItem = true;
         }
     }
 
     public void SubmitItem()
     {
         _uiManager.SubmitItem(_itemSlot);
+    }
+
+    private void ResetDisplay()
+    {
+        _itemDisplayImage.sprite = null;
+        _itemImageColor.a = 0f;
+        _itemDisplayImage.color = _itemImageColor;
+
+        _itemDisplayName.text = "";
+        _itemDescription.text = "";
+
+        _initializedSelectedItem = false;
     }
 }

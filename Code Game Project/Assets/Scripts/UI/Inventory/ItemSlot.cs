@@ -56,4 +56,10 @@ public class ItemSlot : MonoBehaviour
     {
         _outline.effectDistance = Vector2.zero;
     }
+
+    public void ToBeDestroyed()
+    {
+        _itemSelection.SetSelectedItem(null);
+        Destroy(gameObject);
+    }
 }

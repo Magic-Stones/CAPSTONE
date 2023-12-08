@@ -6,7 +6,7 @@ public class TornPage : MonoBehaviour, ItemInterface
 {
     [SerializeField] private ItemData _tornPageData;
     public ItemData GetItemData { get { return _tornPageData; } }
-    [SerializeField] private PlayerInteraction _playerInteraction;
+    private PlayerInteraction _playerInteraction;
 
     void Awake()
     {

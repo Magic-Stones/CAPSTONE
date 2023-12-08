@@ -6,7 +6,7 @@ public class DungeonKey : MonoBehaviour, ItemInterface
 {
     [SerializeField] private ItemData _dungeonKeyData;
     public ItemData GetItemData { get { return _dungeonKeyData; } }
-    [SerializeField] private PlayerInteraction _playerInteraction;
+    private PlayerInteraction _playerInteraction;
 
     void Awake()
     {

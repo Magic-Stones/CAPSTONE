@@ -115,4 +115,16 @@ public class GameMechanics : MonoBehaviour
     {
         _uiManager.LoseGame();
     }
+
+    public static Vector2 GetRandomDirection
+    {
+        get
+        {
+            float x = UnityEngine.Random.Range(-1f, 1f);
+            float y = UnityEngine.Random.Range(-1f, 1f);
+            Vector2 randomDirection = new Vector2(x, y);
+
+            return randomDirection;
+        }
+    }
 }

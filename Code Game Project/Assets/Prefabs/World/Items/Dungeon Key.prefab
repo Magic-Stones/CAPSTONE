@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 55710ad499ffd0144acd3efdf072e5fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8086815149130528746}
   - component: {fileID: 6413842669748678267}
+  - component: {fileID: -8181987247886773873}
   - component: {fileID: -8295328169503694014}
   m_Layer: 0
   m_Name: Dungeon Key
@@ -144,6 +145,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22, y: 0.76}
   m_EdgeRadius: 0
+--- !u!50 &-8181987247886773873
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8480952334428867473}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &-8295328169503694014
 MonoBehaviour:
   m_ObjectHideFlags: 0

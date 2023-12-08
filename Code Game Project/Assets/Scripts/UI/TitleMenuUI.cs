@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TitleMenuUI : MonoBehaviour
 {
     [SerializeField] private GameObject _titleMenu;
+    [SerializeField] private GameObject _stageSelection;
     [SerializeField] private GameObject _aboutModule;
 
     // Start is called before the first frame update
@@ -20,14 +21,23 @@ public class TitleMenuUI : MonoBehaviour
         
     }
 
-    public void StartGame()
+    public void StageSelection(int stageNumber)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (stageNumber == 0) SceneManager.LoadScene("StageTutorial");
+        else SceneManager.LoadScene($"Stage-{stageNumber}");
+    }
+
+    public void StartPlay()
+    {
+        _stageSelection.SetActive(true);
+        _titleMenu.SetActive(false);
+        _aboutModule.SetActive(false);
     }
 
     public void TitleScreen()
     {
         _titleMenu.SetActive(true);
+        _stageSelection.SetActive(false);
         _aboutModule.SetActive(false);
     }
 
@@ -35,6 +45,7 @@ public class TitleMenuUI : MonoBehaviour
     {
         _aboutModule.SetActive(true);
         _titleMenu.SetActive(false);
+        _stageSelection.SetActive(false);
     }
 
     public void QuitGame()

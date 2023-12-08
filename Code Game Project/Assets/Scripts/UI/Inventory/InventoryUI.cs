@@ -10,8 +10,6 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Transform _itemSlot;
 
     [SerializeField] private float _itemSlotCellSize = 10f;
-    private int x = 0;
-    private int y = 0;
 
     [SerializeField] private List<InventoryItem> _inventoryList;
 
@@ -41,23 +39,26 @@ public class InventoryUI : MonoBehaviour
 
     private void RefreshInventoryItems()
     {
+        foreach (Transform item in _itemContainer)
+        {
+            if (!item) break;
+            item.GetComponent<ItemSlot>().ToBeDestroyed();
+        }
+
+        int x = 0;
+        int y = 0;
+
         foreach (InventoryItem inventoryItem in _inventory.GetInventoryList)
         {
-            if (!_inventoryList.Contains(inventoryItem))
+            RectTransform itemSlot = Instantiate(_itemSlot, _itemContainer).GetComponent<RectTransform>();
+            itemSlot.anchoredPosition = new Vector2(x * _itemSlotCellSize, y * _itemSlotCellSize);
+            itemSlot.GetComponent<ItemSlot>().inventoryItem = inventoryItem;
+            x++;
+            if (x == 5)
             {
-                RectTransform itemSlot = Instantiate(_itemSlot, _itemContainer).GetComponent<RectTransform>();
-                itemSlot.anchoredPosition = new Vector2(x * _itemSlotCellSize, y * _itemSlotCellSize);
-                itemSlot.GetComponent<ItemSlot>().inventoryItem = inventoryItem;
-                x++;
-                if (x == 5)
-                {
-                    y--;
-                    x = 0;
-                }
-
-                _inventoryList.Add(inventoryItem);
+                y--;
+                x = 0;
             }
-            else continue;
         }
     }
 }

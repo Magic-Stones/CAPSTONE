@@ -28,6 +28,7 @@ public class QuizUI : MonoBehaviour
     private event EventDelegate _onWrongAnswer;
 
     private LaptopEnergy _laptopEnergy;
+    private CanvasGroup _canvasGroup;
     private GameMechanics _mechanics;
 
     void Awake()
@@ -42,6 +43,7 @@ public class QuizUI : MonoBehaviour
         _btnRunCode = transform.Find("Button - Run the code").GetComponent<Button>();
 
         _laptopEnergy = GameObject.Find("Laptop Energy").GetComponent<LaptopEnergy>();
+        _canvasGroup = GetComponent<CanvasGroup>();
         _mechanics = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameMechanics>();
     }
 
@@ -56,20 +58,6 @@ public class QuizUI : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void OnEnable()
-    {
-        _onWrongAnswer += Player.Instance.TakeDamage;
-        _onWrongAnswer += _laptopEnergy.RefreshIcons;
-
-        DisplayQuiz();
-    }
-
-    void OnDisable()
-    {
-        _onWrongAnswer -= Player.Instance.TakeDamage;
-        _onWrongAnswer -= _laptopEnergy.RefreshIcons;
     }
 
     public void SetupQuiz(GameObject enemy, QuizTemplate quizTemplate)
@@ -158,5 +146,29 @@ public class QuizUI : MonoBehaviour
         _imgEnemy.sprite = null;
         _answerBox.SetActive(false);
         _btnRunCode.interactable = false;
+    }
+
+    public void QuizUISetActive(bool isActive)
+    {
+        if (isActive)
+        {
+            _canvasGroup.alpha = 1f;
+            _canvasGroup.interactable = true;
+            _canvasGroup.blocksRaycasts = true;
+
+            _onWrongAnswer += Player.Instance.TakeDamage;
+            _onWrongAnswer += _laptopEnergy.RefreshIcons;
+
+            DisplayQuiz();
+        }
+        else
+        {
+            _canvasGroup.alpha = 0f;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+
+            _onWrongAnswer -= Player.Instance.TakeDamage;
+            _onWrongAnswer -= _laptopEnergy.RefreshIcons;
+        }
     }
 }

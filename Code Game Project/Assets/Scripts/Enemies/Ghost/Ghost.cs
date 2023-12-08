@@ -48,8 +48,6 @@ public class Ghost : MonoBehaviour, IEnemy
     // Start is called before the first frame update
     void Start()
     {
-        if (!_quizTemplate) gameObject.SetActive(false);
-
         foreach (QuizTemplate.SerializedQuiz quiz in _quizTemplate.GetQuizList)
         {
             quiz.GetExtraInfo.questionPassed = false;
@@ -97,6 +95,10 @@ public class Ghost : MonoBehaviour, IEnemy
             builder.Replace(lootReward.name, loot.name);
             lootReward.name = builder.ToString();
             lootReward.transform.SetParent(_mechanics.GetHierarchyItem);
+
+            Rigidbody2D lootRb2D = lootReward.GetComponent<Rigidbody2D>();
+            if (_lootRewards.Count > 1)
+                lootRb2D.AddForce(GameMechanics.GetRandomDirection * 5f, ForceMode2D.Impulse);
         }
     }
 

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4723badb64d988b49a3d491315019304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 235710634879676109}
   - component: {fileID: 6281010370693508861}
+  - component: {fileID: -6455514924419761622}
   - component: {fileID: 797332794388911639}
   m_Layer: 0
   m_Name: Torn Page Loot 3
@@ -144,6 +145,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.61, y: 0.41}
   m_EdgeRadius: 0
+--- !u!50 &-6455514924419761622
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396486557027349063}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!114 &797332794388911639
 MonoBehaviour:
   m_ObjectHideFlags: 0
