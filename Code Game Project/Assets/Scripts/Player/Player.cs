@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
     {
         _controller2D.ExternalMoveSpeed = _moveSpeed;
         OnLaptopOutOfPower += LaptopOutOfPower;
+
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
     }
 
     // Update is called once per frame

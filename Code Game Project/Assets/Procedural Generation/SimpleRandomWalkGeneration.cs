@@ -10,7 +10,6 @@ public class SimpleRandomWalkGeneration : ProceduralWorldGeneration
     protected override void RunProceduralGeneration()
     {
         HashSet<Vector2Int> floorPositions = GenerateSimpleRandomWalk(_randomWalkTemplate, _startPosition);
-        _tilemapVisualizer.ClearAllTiles();
         _tilemapVisualizer.PaintFloorTiles(floorPositions);
         WallsGeneration.GenerateWalls(floorPositions, _tilemapVisualizer);
     }
@@ -19,13 +18,11 @@ public class SimpleRandomWalkGeneration : ProceduralWorldGeneration
     {
         Vector2Int currentPosition = position;
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
-
         for (int i = 0; i < template.GetIterations; i++)
         {
             HashSet<Vector2Int> path = ProceduralGenerationAlgorithms.SimpleRandomWalk(currentPosition, template.GetWalkLength);
             floorPositions.UnionWith(path);
-
-            if (template.GetStartRandomIteration) 
+            if (template.GetStartRandomIteration)
                 currentPosition = floorPositions.ElementAt(Random.Range(0, floorPositions.Count));
         }
 
