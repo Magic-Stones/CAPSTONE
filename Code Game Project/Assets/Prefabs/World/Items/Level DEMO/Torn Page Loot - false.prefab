@@ -94,10 +94,10 @@ GameObject:
   m_Component:
   - component: {fileID: 235710634879676109}
   - component: {fileID: 6281010370693508861}
-  - component: {fileID: -5394749048582575360}
+  - component: {fileID: -6455514924419761622}
   - component: {fileID: 797332794388911639}
   m_Layer: 0
-  m_Name: Torn Page Loot 2
+  m_Name: Torn Page Loot - false
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,7 +145,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.61, y: 0.41}
   m_EdgeRadius: 0
---- !u!50 &-5394749048582575360
+--- !u!50 &-6455514924419761622
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -178,5 +178,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc6e0d0dfd8fc3d47baa4b2403686ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tornPageData: {fileID: 11400000, guid: ef54141b9cdf192439a941bf87f4255a, type: 2}
-  _playerInteraction: {fileID: 0}
+  _tornPageData: {fileID: 11400000, guid: f467f66db27b0dc40ba707e3fcea1512, type: 2}

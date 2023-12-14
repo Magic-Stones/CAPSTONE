@@ -9,7 +9,7 @@ public class DungeonChest : MonoBehaviour, IEnemy
     public QuizTemplate GetQuizTemplate { get { return _quizTemplate; } }
     [SerializeField] private List<GameObject> _lootRewards;
 
-    [SerializeField] private Sprite _quizChallengePose;
+    private Sprite _quizChallengePose;
     public Sprite GetChallengePose { get { return _quizChallengePose; } }
     private BoxCollider2D _box2D;
 
@@ -51,6 +51,9 @@ public class DungeonChest : MonoBehaviour, IEnemy
             builder.Replace(lootReward.name, loot.name);
             lootReward.name = builder.ToString();
             lootReward.transform.SetParent(_mechanics.GetHierarchyItem);
+
+            lootReward.TryGetComponent(out Rigidbody2D lootRb2D);
+            if (lootRb2D) lootRb2D.AddForce(GameMechanics.PopOutLoot * 5f, ForceMode2D.Impulse);
         }
     }
 
@@ -66,6 +69,7 @@ public class DungeonChest : MonoBehaviour, IEnemy
 
         _box2D.enabled = false;
 
+        _mechanics.OnQuizLeaveEvent -= OnUndefeated;
         Invoke(nameof(UnlockChest), 1f);
     }
 

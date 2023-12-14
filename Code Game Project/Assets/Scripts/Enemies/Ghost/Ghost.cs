@@ -20,12 +20,16 @@ public class Ghost : MonoBehaviour, IEnemy
     private const string TARGET_TAG = "Player";
     private Transform _targetTransform;
 
+    [Space(10)]
     [SerializeField] private QuizTemplate _quizTemplate;
     public QuizTemplate GetQuizTemplate { get { return _quizTemplate; } }
     [SerializeField] private List<GameObject> _lootRewards;
-    [SerializeField] private Transform _lootdropPoint;
+    private Transform _lootdropPoint;
 
-    [SerializeField] private AnimationClip _idleRight, _idleLeft, _animExorcised;
+    [Space(10)]
+    [SerializeField] private AnimationClip _idleRight;
+    [SerializeField] private AnimationClip _idleLeft;
+    [SerializeField] private AnimationClip _animExorcised;
     private Animator _animator;
     [SerializeField] private Sprite _quizChallengePose;
     public Sprite GetChallengePose { get { return _quizChallengePose; } }
@@ -37,6 +41,8 @@ public class Ghost : MonoBehaviour, IEnemy
 
     void Awake() 
     {
+        _lootdropPoint = transform.Find("Lootdrop Point");
+
         _animator = GetComponentInChildren<Animator>();
         _box2D = GetComponent<BoxCollider2D>();
         _rb2D = GetComponent<Rigidbody2D>();
@@ -97,8 +103,7 @@ public class Ghost : MonoBehaviour, IEnemy
             lootReward.transform.SetParent(_mechanics.GetHierarchyItem);
 
             Rigidbody2D lootRb2D = lootReward.GetComponent<Rigidbody2D>();
-            if (_lootRewards.Count > 1)
-                lootRb2D.AddForce(GameMechanics.GetRandomDirection * 5f, ForceMode2D.Impulse);
+            lootRb2D.AddForce(GameMechanics.PopOutLoot * 5f, ForceMode2D.Impulse);
         }
     }
 

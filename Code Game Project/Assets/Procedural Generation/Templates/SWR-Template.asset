@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9968216f830174db93e0f80b5356ef, type: 3}
   m_Name: SWR-Template
   m_EditorClassIdentifier: 
-  _iterations: 50
-  _walkLength: 15
+  _iterations: 75
+  _walkLength: 25
   _startRandomIteration: 0

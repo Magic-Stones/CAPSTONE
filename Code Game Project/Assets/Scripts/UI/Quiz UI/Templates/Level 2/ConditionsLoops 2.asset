@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a889d1de46dab40b6900a0b48d81e0, type: 3}
+  m_Name: ConditionsLoops 2
+  m_EditorClassIdentifier: 
+  _quizList:
+  - name: 
+    _question: A relational operator that means greater than or equal to.
+    _correctAnswer: '>='
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0
+  - name: 
+    _question: A relational operator that means not equal to.
+    _correctAnswer: '!='
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0
+  - name: 
+    _question: A conditional statement that uses a "case" value and each should have
+      a "break" statement to end the code block.
+    _correctAnswer: switch
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0

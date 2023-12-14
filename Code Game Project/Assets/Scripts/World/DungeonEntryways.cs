@@ -7,6 +7,9 @@ public class DungeonEntryways : MonoBehaviour
     [SerializeField] private bool _isLocked = true;
     public bool GetIsLocked { get { return _isLocked; } }
 
+    [SerializeField] private ItemData _dungeonKey;
+    public ItemData GetDungeonKey { get { return _dungeonKey; } }
+
     private Animator _animator;
 
     void Awake()

@@ -127,4 +127,15 @@ public class GameMechanics : MonoBehaviour
             return randomDirection;
         }
     }
+
+    public static Vector2 PopOutLoot
+    {
+        get
+        {
+            float x = UnityEngine.Random.Range(-1f, 1f);
+            Vector2 randomDirectionX = new Vector2(x, 1f);
+
+            return randomDirectionX;
+        }
+    }
 }

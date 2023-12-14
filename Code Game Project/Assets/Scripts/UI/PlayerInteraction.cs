@@ -13,9 +13,8 @@ public class PlayerInteraction : MonoBehaviour
     private GameObject _nearbyChest;
     [SerializeField] private QuizTemplate _quizTemplate;
 
-    private GameObject _nearbyEntryway;
-
-    [SerializeField] private ItemData _dungeonKeyData;
+    private DungeonEntryways _nearbyEntryway;
+    [SerializeField] private ItemData _entrywayKey;
 
     private string _defaultInteractText;
 
@@ -96,18 +95,22 @@ public class PlayerInteraction : MonoBehaviour
 
     public void ContainNearbyEntryway(GameObject nearbyEntryway)
     {
-        _nearbyEntryway = nearbyEntryway;
-
-        if (_nearbyEntryway)
+        if (nearbyEntryway)
         {
+            _nearbyEntryway = nearbyEntryway.GetComponent<DungeonEntryways>();
+            _entrywayKey = _nearbyEntryway.GetDungeonKey;
+
             _textInteract.text = "Open";
 
-            if (Player.Instance.GetInventory.GetItemDictionary.ContainsKey(_dungeonKeyData))
+            if (Player.Instance.GetInventory.GetItemDictionary.ContainsKey(_entrywayKey))
                 _button.interactable = true;
             else _button.interactable = false;
         }
         else
         {
+            _nearbyEntryway = null;
+            _entrywayKey = null;
+
             _textInteract.text = _defaultInteractText;
             _button.interactable = false;
         }
@@ -139,7 +142,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (!_nearbyEntryway) return;
 
-        _nearbyEntryway.GetComponent<DungeonEntryways>().UnlockEntryway();
-        Player.Instance.GetInventory.RemoveItem(_dungeonKeyData);
+        _nearbyEntryway.UnlockEntryway();
+        Player.Instance.GetInventory.RemoveItem(_entrywayKey);
     }
 }

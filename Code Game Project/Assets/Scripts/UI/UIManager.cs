@@ -147,25 +147,30 @@ public class UIManager : MonoBehaviour
         _mainUI.SetActive(false);
     }
 
-    public void Settings()
+    public void BTN_Settings()
     {
         _settingsPanel.SetActive(true);
         _mainUI.SetActive(false);
     }
 
-    public void Resume()
+    public void BTN_Resume()
     {
         _mainUI.SetActive(true);
         _settingsPanel.SetActive(false);
     }
 
-    public void RestartGame()
+    public void BTN_RestartGame()
     {
         _mechanics.GetQuestionList.Clear();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void MainMenu()
+    public void BTN_NextStage(int stage)
+    {
+        SceneManager.LoadScene($"Stage-{stage}");
+    }
+
+    public void BTN_MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }

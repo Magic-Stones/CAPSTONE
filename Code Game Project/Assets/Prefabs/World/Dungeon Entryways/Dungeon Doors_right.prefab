@@ -72,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: -1888967331, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41568628, g: 0.34901962, b: 0.34901962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -216,10 +216,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 730476268, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41568628, g: 0.34901962, b: 0.34901962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -327,10 +327,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 220727825, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41568628, g: 0.34901962, b: 0.34901962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLocked: 1
+  _dungeonKey: {fileID: 11400000, guid: 64f6fcca8ac175445bff4e3e4fae33dc, type: 2}
 --- !u!1 &4141139436561281364
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,10 +540,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 263077229, guid: 2677d598ec358c842840e0a56b164e78, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.41568628, g: 0.34901962, b: 0.34901962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

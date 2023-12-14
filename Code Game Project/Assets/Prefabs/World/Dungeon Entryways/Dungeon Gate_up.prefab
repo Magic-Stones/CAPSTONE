@@ -542,7 +542,7 @@ SortingGroup:
   m_GameObject: {fileID: 8417321857772794602}
   m_Enabled: 1
   m_SortingLayerID: -1004788295
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
 --- !u!114 &542181411108866778
 MonoBehaviour:
@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLocked: 1
+  _dungeonKey: {fileID: 11400000, guid: af696d497bd30744996c9e165d7fcb2c, type: 2}
 --- !u!1 &9190043620882318856
 GameObject:
   m_ObjectHideFlags: 0
