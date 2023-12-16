@@ -7,9 +7,13 @@ public class DungeonKey : MonoBehaviour, ItemInterface
     [SerializeField] private ItemData _dungeonKeyData;
     public ItemData GetItemData { get { return _dungeonKeyData; } }
 
+    [SerializeField] private bool _popOutLootItem = true;
+    public bool SetPopOutLootItem { set { _popOutLootItem = value; } }
+    private bool _canPopOut = true;
+
     private float _gravityTimeLimit = 1f;
 
-    private Rigidbody2D _rb2D;
+    private Rigidbody2D _rb2D = null;
     private PlayerInteraction _playerInteraction;
 
     void Awake()
@@ -35,7 +39,17 @@ public class DungeonKey : MonoBehaviour, ItemInterface
     {
         if (_rb2D)
         {
-            if (_gravityTimeLimit > 0f) _gravityTimeLimit -= Time.deltaTime;
+            if (_popOutLootItem)
+            {
+                if (_canPopOut)
+                {
+                    _rb2D.AddForce(GameMechanics.PopOutLootMotion * 5f, ForceMode2D.Impulse);
+                    _canPopOut = false;
+                }
+
+                if (_gravityTimeLimit > 0f) _gravityTimeLimit -= Time.deltaTime;
+                else _rb2D.gravityScale = 0f;
+            }
             else _rb2D.gravityScale = 0f;
         }
     }

@@ -7,6 +7,9 @@ public class DungeonChest : MonoBehaviour, IEnemy
 {
     [SerializeField] private QuizTemplate _quizTemplate;
     public QuizTemplate GetQuizTemplate { get { return _quizTemplate; } }
+
+    [Space(10)]
+    [SerializeField] private bool _canPopOutLoot = true;
     [SerializeField] private List<GameObject> _lootRewards;
 
     private Sprite _quizChallengePose;
@@ -52,8 +55,8 @@ public class DungeonChest : MonoBehaviour, IEnemy
             lootReward.name = builder.ToString();
             lootReward.transform.SetParent(_mechanics.GetHierarchyItem);
 
-            lootReward.TryGetComponent(out Rigidbody2D lootRb2D);
-            if (lootRb2D) lootRb2D.AddForce(GameMechanics.PopOutLoot * 5f, ForceMode2D.Impulse);
+            if (_canPopOutLoot) 
+                lootReward.GetComponent<ItemInterface>().SetPopOutLootItem = _canPopOutLoot;
         }
     }
 

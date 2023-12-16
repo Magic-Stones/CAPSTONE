@@ -67,8 +67,22 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.CompareTag("Entryway"))
         {
-            GameObject root = collision.transform.parent.parent.gameObject;
-            _playerInteraction.ContainNearbyEntryway(root);
+            DungeonEntryways entryway;
+            Transform parentOfCollider = collision.collider.transform.parent;
+            if (parentOfCollider.name.Equals("Close") || parentOfCollider.name.Equals("Open")) 
+            { 
+                entryway = parentOfCollider.parent.GetComponent<DungeonEntryways>();
+
+                if (!entryway.GetIsLocked) return;
+                _playerInteraction.ContainNearbyEntryway(entryway.gameObject);
+            }
+            else
+            {
+                entryway = parentOfCollider.GetComponent<DungeonEntryways>();
+
+                if (!entryway.GetIsLocked) return;
+                _playerInteraction.ContainNearbyEntryway(entryway.gameObject);
+            }
         }
 
         if (collision.collider.name.Equals("Game Win Trigger"))

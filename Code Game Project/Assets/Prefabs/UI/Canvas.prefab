@@ -357,8 +357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 510, y: 100}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 520, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2861441420030741216
 CanvasRenderer:
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   _nearbyItem: {fileID: 0}
   _itemData: {fileID: 0}
   _quizTemplate: {fileID: 0}
-  _dungeonKeyData: {fileID: 11400000, guid: f41562090af51224d84ac71b1cca9198, type: 2}
+  _entrywayKey: {fileID: 0}
 --- !u!1 &6902972924041618124
 GameObject:
   m_ObjectHideFlags: 0

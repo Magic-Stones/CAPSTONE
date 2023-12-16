@@ -128,7 +128,7 @@ public class GameMechanics : MonoBehaviour
         }
     }
 
-    public static Vector2 PopOutLoot
+    public static Vector2 PopOutLootMotion
     {
         get
         {
