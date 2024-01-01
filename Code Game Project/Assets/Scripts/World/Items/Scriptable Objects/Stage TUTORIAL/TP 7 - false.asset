@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Torn Page - false
   itemIcon: {fileID: 21300000, guid: 4723badb64d988b49a3d491315019304, type: 3}
   itemDescription: A torn page written with a word "false"...
+  stackSize: 1
   quizAnswer: false

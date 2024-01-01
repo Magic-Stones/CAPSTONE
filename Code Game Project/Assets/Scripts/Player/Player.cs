@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public static Player Instance {  get; private set; }
+    public static Player Instance { get; private set; }
 
     [SerializeField] private int _laptopEnergy = 5;
     public int GetLaptopEnergy { get { return _laptopEnergy; } }

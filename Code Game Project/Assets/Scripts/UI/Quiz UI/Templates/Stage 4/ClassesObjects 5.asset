@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a889d1de46dab40b6900a0b48d81e0, type: 3}
+  m_Name: ClassesObjects 5
+  m_EditorClassIdentifier: 
+  _quizList:
+  - name: 
+    _question: A programming mechanic, also known as information hiding, where members
+      are combined together within the class.
+    _correctAnswer: Encapsulation
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0
+  - name: 
+    _question: "public class Blueprint \r\n{\r\n\tpublic ___() { ... }\r\n}"
+    _correctAnswer: Blueprint
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0
+  - name: 
+    _question: 'public double TotalPrice { get; set; }
+
+
+      What is this suppose
+      to be?'
+    _correctAnswer: Property
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0

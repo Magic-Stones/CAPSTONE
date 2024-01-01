@@ -12,5 +12,9 @@ public class ItemData : ScriptableObject
     public string itemDescription;
 
     [Space(10)]
+    [Range(1, 5)]
+    public int stackSize;
+
+    [Space(10)]
     public string quizAnswer;
 }

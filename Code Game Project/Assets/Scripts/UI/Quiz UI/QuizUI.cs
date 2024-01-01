@@ -125,7 +125,7 @@ public class QuizUI : MonoBehaviour
     public void LeaveQuiz()
     {
         ResetQuiz();
-        _onWrongAnswer?.Invoke();
+        //_onWrongAnswer?.Invoke();
         _mechanics.LeaveChallenge(_enemyChallenger);
     }
 
