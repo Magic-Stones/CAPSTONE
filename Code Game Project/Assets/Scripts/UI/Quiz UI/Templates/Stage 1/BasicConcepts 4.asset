@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quizList:
   - name: 
-    _question: "int score = 100; \nWhat is \"score\" used as?"
-    _correctAnswer: Variable
+    _question: "static void Main(string[] args) \r\n{\r\n\t_____\"Hello World!\"_;\r\n}"
+    _correctAnswer: Console.WriteLine()
     _addPoints: 0
     _extraInformation:
       questionPassed: 0

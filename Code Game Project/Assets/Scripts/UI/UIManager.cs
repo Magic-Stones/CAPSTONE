@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _laptopEnergy;
     [SerializeField] private GameObject _scoreDisplay;
     public GameObject GetScoreDisplay { get { return _scoreDisplay; } }
+    [SerializeField] private GameObject _scoreFinalDisplay;
 
     [Space(10)]
     [SerializeField] private GameObject _inventoryUI;
@@ -138,6 +140,9 @@ public class UIManager : MonoBehaviour
         _gameWinPanel.SetActive(true);
         _mainUI.SetActive(false);
         if (_settingsPanel.activeInHierarchy) _settingsPanel.SetActive(false);
+
+        _scoreFinalDisplay.GetComponent<TextMeshProUGUI>().text = 
+            $"{Player.Instance.score}/{_mechanics.GetQuestionList.Count}";
     }
 
     public void LoseGame()
@@ -145,6 +150,10 @@ public class UIManager : MonoBehaviour
         _gameLosePanel.SetActive(true);
         _quizUI.QuizUISetActive(false);
         _mainUI.SetActive(false);
+
+        _scoreFinalDisplay.transform.parent.SetParent(_gameLosePanel.transform);
+        _scoreFinalDisplay.GetComponent<TextMeshProUGUI>().text =
+            $"{Player.Instance.score}/{_mechanics.GetQuestionList.Count}";
     }
 
     public void BTN_Settings()

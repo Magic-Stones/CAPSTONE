@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quizList:
   - name: 
-    _question: It is a method that allows to prompt users to enter input data.
-    _correctAnswer: Console.ReadLine()
+    _question: Explanatory statements in a program in which the compiler ignores
+      everything in it.
+    _correctAnswer: Comments
     _addPoints: 0
     _extraInformation:
       questionPassed: 0
   - name: 
-    _question: Explanatory statements in a program in which the compiler ignores
-      everything in it.
-    _correctAnswer: Comments
+    _question: "int score = 100; \r\n\nWhat is \"score\" used as?"
+    _correctAnswer: Variable
     _addPoints: 0
     _extraInformation:
       questionPassed: 0
@@ -34,8 +34,16 @@ MonoBehaviour:
     _extraInformation:
       questionPassed: 0
   - name: 
-    _question: What denotation is used for Assignment Operators?
-    _correctAnswer: =
+    _question: 'int a = 15;
+
+      int b = a__;
+
+
+      Console.WriteLine(b);
+
+      //
+      Expected output: 16'
+    _correctAnswer: ++
     _addPoints: 0
     _extraInformation:
       questionPassed: 0

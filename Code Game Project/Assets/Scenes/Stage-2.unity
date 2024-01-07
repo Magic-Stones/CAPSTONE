@@ -1055,14 +1055,6 @@ PrefabInstance:
       propertyPath: _quizTemplate
       value: 
       objectReference: {fileID: 11400000, guid: d54c9266ac4f4fb46ab84cadf34950e2, type: 2}
-    - target: {fileID: 9057154732115341, guid: edf19659d8f1f44458fbc5b7f9dfab64, type: 3}
-      propertyPath: _lootRewards.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9057154732115341, guid: edf19659d8f1f44458fbc5b7f9dfab64, type: 3}
-      propertyPath: _lootRewards.Array.data[0]
-      value: 
-      objectReference: {fileID: 4041692651113114546, guid: cf5a5a62df0b5e044b0f53f894f42461, type: 3}
     - target: {fileID: 3607511356650832385, guid: edf19659d8f1f44458fbc5b7f9dfab64, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1718,6 +1710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questions: []
   _hierarchyItem: {fileID: 2009876857}
+  _stageScoreData: {fileID: 11400000, guid: 0617e5a9d6272c8418a0c7becf92471d, type: 2}
 --- !u!4 &1207940975
 Transform:
   m_ObjectHideFlags: 0

@@ -345,7 +345,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &88295950
 PrefabInstance:
@@ -2798,6 +2798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questions: []
   _hierarchyItem: {fileID: 2009876857}
+  _stageScoreData: {fileID: 11400000, guid: c25e48bf5f9dff545a956d019b1b9510, type: 2}
 --- !u!4 &1207940975
 Transform:
   m_ObjectHideFlags: 0
@@ -2811,7 +2812,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1269922928
 PrefabInstance:
@@ -2978,7 +2979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6902972924818956873, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6902972924818956873, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
       propertyPath: m_AnchorMax.x

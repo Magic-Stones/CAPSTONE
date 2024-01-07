@@ -2718,6 +2718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questions: []
   _hierarchyItem: {fileID: 2009876857}
+  _stageScoreData: {fileID: 11400000, guid: 0d09906449e51d845ba398e9aa46996c, type: 2}
 --- !u!4 &1207940975
 Transform:
   m_ObjectHideFlags: 0
@@ -2731,7 +2732,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1217038444 stripped
 Transform:
@@ -2784,7 +2785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6902972924818956873, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6902972924818956873, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
       propertyPath: m_AnchorMax.x

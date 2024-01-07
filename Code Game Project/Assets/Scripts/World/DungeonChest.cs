@@ -46,6 +46,8 @@ public class DungeonChest : MonoBehaviour, IEnemy
 
     private void DropLootRewards()
     {
+        if (_lootRewards.Count == 0) return;
+
         StringBuilder builder;
         foreach (GameObject loot in _lootRewards)
         {

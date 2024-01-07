@@ -14,14 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quizList:
   - name: 
-    _question: Allows programs to use data for performing tasks and reserves a memory
-      location for storing values.
-    _correctAnswer: Variable
-    _addPoints: 0
-    _extraInformation:
-      questionPassed: 0
-  - name: 
-    _question: A built-in data type used for saving sequences of characters.
+    _question: ___ name = "Juan";
     _correctAnswer: string
     _addPoints: 0
     _extraInformation:
@@ -29,6 +22,12 @@ MonoBehaviour:
   - name: 
     _question: It is a method that displays text on the console window.
     _correctAnswer: Console.WriteLine()
+    _addPoints: 0
+    _extraInformation:
+      questionPassed: 0
+  - name: 
+    _question: ___ totalStudents = 35;
+    _correctAnswer: int
     _addPoints: 0
     _extraInformation:
       questionPassed: 0

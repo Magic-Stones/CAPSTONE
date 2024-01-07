@@ -1976,6 +1976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _questions: []
   _hierarchyItem: {fileID: 2009876857}
+  _stageScoreData: {fileID: 11400000, guid: 9111062687fe0ec45afd7d41059f115a, type: 2}
 --- !u!4 &1207940975
 Transform:
   m_ObjectHideFlags: 0

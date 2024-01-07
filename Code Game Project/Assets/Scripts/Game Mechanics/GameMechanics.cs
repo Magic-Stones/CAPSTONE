@@ -39,6 +39,8 @@ public class GameMechanics : MonoBehaviour
     [SerializeField] private Transform _hierarchyItem;
     public Transform GetHierarchyItem { get { return _hierarchyItem; } }
 
+    [SerializeField] private StageScoreData _stageScoreData;
+
     private CharacterController2D _playerController2D;
     private UIManager _uiManager;
 
@@ -109,11 +111,15 @@ public class GameMechanics : MonoBehaviour
     public void WinGame()
     {
         _uiManager.WinGame();
+
+        _stageScoreData.AddScoreData(Player.Instance.score, _questions.Count, DateTime.Now.ToString());
     }
 
     public void LoseGame()
     {
         _uiManager.LoseGame();
+
+        _stageScoreData.AddScoreData(Player.Instance.score, _questions.Count, DateTime.Now.ToString());
     }
 
     public static Vector2 GetRandomDirection

@@ -21,8 +21,9 @@ MonoBehaviour:
     _extraInformation:
       questionPassed: 0
   - name: 
-    _question: 'It is a collection of classes, interfaces, and value types. '
-    _correctAnswer: Class Library
+    _question: Allows programs to use data for performing tasks and reserves a memory
+      location for storing values.
+    _correctAnswer: Variable
     _addPoints: 0
     _extraInformation:
       questionPassed: 0

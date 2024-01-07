@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18eeb9bfe69486c41847ee79bf2a7c64, type: 3}
-  m_Name: LV1TP 6 - Console,Read-Line()
+  m_Name: LV1TP 2 - Variable
   m_EditorClassIdentifier: 
-  itemName: Torn Page - Console.ReadLine()
+  itemName: Torn Page - Variable
   itemIcon: {fileID: 21300000, guid: 4723badb64d988b49a3d491315019304, type: 3}
-  itemDescription: A torn page written with a word "Console.ReadLine()"...
-  quizAnswer: Console.ReadLine()
+  itemDescription: A torn page written with a word "Variable"...
+  stackSize: 0
+  quizAnswer: Variable

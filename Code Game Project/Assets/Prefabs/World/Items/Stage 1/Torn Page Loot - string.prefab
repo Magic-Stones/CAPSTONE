@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1059240745306736175}
   - component: {fileID: 797332794388911639}
   m_Layer: 0
-  m_Name: Torn Page Loot - Variable
+  m_Name: Torn Page Loot - string
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,3 +179,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tornPageData: {fileID: 11400000, guid: 2fe4435785e355f4a8b99e47974da64c, type: 2}
+  _popOutLootItem: 1
