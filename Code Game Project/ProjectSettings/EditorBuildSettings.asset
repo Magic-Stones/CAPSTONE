@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage-6.unity
     guid: c936faa8413e2734984384ec7a1faaf7
+  - enabled: 1
+    path: Assets/Scenes/Review Modules/Reviewer-1.unity
+    guid: 60003d6ac6cc49041b9c21d0c089ce70
+  - enabled: 1
+    path: Assets/Scenes/Review Modules/Reviewer-2.unity
+    guid: 9e83dbb915eec0a49b16a5d7a07f4f97
+  - enabled: 1
+    path: Assets/Scenes/Review Modules/Reviewer-3.unity
+    guid: ced7e157ed9ce46419c03e96a9cc897f
   m_configObjects: {}

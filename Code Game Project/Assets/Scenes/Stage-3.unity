@@ -2769,6 +2769,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6902972923973836965, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902972924192817286, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00074768066
+      objectReference: {fileID: 0}
     - target: {fileID: 6902972924286995564, guid: 46089f2309f4e2d42a1d665240f00382, type: 3}
       propertyPath: m_text
       value: You have completed the Methods module!

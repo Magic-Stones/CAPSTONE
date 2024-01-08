@@ -21,7 +21,7 @@ MonoBehaviour:
     _extraInformation:
       questionPassed: 1
   - name: 
-    _question: "int countdown = 5;\r\nstatic void CallMethod() \r\n{\r\n\tcountdown--;\r\n\tif
+    _question: "static int countdown = 5;\r\nstatic void CallMethod() \r\n{\r\n\tcountdown--;\r\n\tif
       (countdown > 0)\r\n\t{\r\n\t\tCallMethod();\r\n\t}\r\n}\r\n\r\nWhat kind of
       method is this?"
     _correctAnswer: Recursive method
@@ -29,13 +29,9 @@ MonoBehaviour:
     _extraInformation:
       questionPassed: 1
   - name: 
-    _question: 'static void SetProfile(string name) { ... }
-
-      static void SetProfile(int
-      age) { ... }
-
-
-      What mechanism in C# is this called?'
+    _question: "static float Subtract(float x, float y) \r\n{ \r\n\treturn x - y;\r\n}\r\nstatic
+      int Subtract(int a, int b) \r\n{\r\n\treturn a - b;\r\n}\r\n\r\nWhat mechanism
+      in C# is this called?"
     _correctAnswer: Method overloading
     _addPoints: 0
     _extraInformation:

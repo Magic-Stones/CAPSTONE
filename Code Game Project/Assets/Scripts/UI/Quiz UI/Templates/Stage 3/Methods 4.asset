@@ -21,8 +21,7 @@ MonoBehaviour:
     _extraInformation:
       questionPassed: 0
   - name: 
-    _question: "static ___ DescribeMethod() \r\n{\r\n\tConsole.WriteLine(\"This method
-      doesn't return a value.\");\r\n}"
+    _question: "static ___ Start() \r\n{\r\n\tConsole.WriteLine(\"Hello World!\");\r\n}"
     _correctAnswer: void
     _addPoints: 0
     _extraInformation:
