@@ -44,6 +44,7 @@ public class ScoreHistoryUI : MonoBehaviour
     private class ScoreHistoryData
     {
         public List<ScoreEntry> scoreEntries;
+        public bool isScoreDataUpdated;
     }
 
     private void UpdateScoreHistory()
@@ -52,6 +53,16 @@ public class ScoreHistoryUI : MonoBehaviour
         {
             if (child.name.Equals(_scoreEntryTemplate.name)) continue;
             Destroy(child.gameObject);
+        }
+
+        string jsonString = PlayerPrefs.GetString("scoreHistory");
+        _scoreHistoryData = JsonUtility.FromJson<ScoreHistoryData>(jsonString);
+        _stageScoreData.isScoreDataUpdated = _scoreHistoryData.isScoreDataUpdated;
+
+        if (_scoreHistoryData == null)
+        {
+            Debug.Log("score history null");
+            return;
         }
 
         if (!_stageScoreData.isScoreDataUpdated)
@@ -64,17 +75,16 @@ public class ScoreHistoryUI : MonoBehaviour
 
         if (_stageScoreData.stageScores.Count > 0)
         {
-            AddScoreEntry(_stageScoreData.stageScores[0].score, 
-                _stageScoreData.stageScores[0].totalQuestions, 
-                _stageScoreData.stageScores[0].dateTime);
+            foreach (StageScoreData.StageScore stageScore in _stageScoreData.stageScores)
+            {
+                AddScoreEntry(stageScore.score, stageScore.totalQuestions, stageScore.dateTime);
+            }
 
             _stageScoreData.stageScores.Clear();
         }
 
-        string jsonString = PlayerPrefs.GetString("scoreHistory");
-        _scoreHistoryData = JsonUtility.FromJson<ScoreHistoryData>(jsonString);
-
-        if (_scoreHistoryData == null) return;
+        string jsonString2 = PlayerPrefs.GetString("scoreHistory");
+        _scoreHistoryData = JsonUtility.FromJson<ScoreHistoryData>(jsonString2);
 
         // Sort rank descending
         for (int i = 0; i < _scoreHistoryData.scoreEntries.Count; i++)
@@ -152,16 +162,22 @@ public class ScoreHistoryUI : MonoBehaviour
             }
         }
 
+        _stageScoreData.isScoreDataUpdated = true;
+        _scoreHistoryData.isScoreDataUpdated = _stageScoreData.isScoreDataUpdated;
+
         json = JsonUtility.ToJson(_scoreHistoryData);
         PlayerPrefs.SetString("scoreHistory", json);
         PlayerPrefs.Save();
-
-        _stageScoreData.isScoreDataUpdated = true;
     }
 
     public void ClearScoreHistory()
     {
         _stageScoreData.isScoreDataUpdated = false;
+        _scoreHistoryData.isScoreDataUpdated = _stageScoreData.isScoreDataUpdated;
+
+        string json = JsonUtility.ToJson(_scoreHistoryData);
+        PlayerPrefs.SetString("scoreHistory", json);
+        PlayerPrefs.Save();
 
         UpdateScoreHistory();
     }

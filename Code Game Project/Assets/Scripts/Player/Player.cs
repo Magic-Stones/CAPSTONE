@@ -37,8 +37,6 @@ public class Player : MonoBehaviour
     {
         _controller2D.ExternalMoveSpeed = _moveSpeed;
         OnLaptopOutOfPower += LaptopOutOfPower;
-
-        System.Text.StringBuilder sb = new System.Text.StringBuilder();
     }
 
     // Update is called once per frame
@@ -60,7 +58,8 @@ public class Player : MonoBehaviour
 
     public void LaptopOutOfPower()
     {
-        _mechanics.LoseGame();
+        _mechanics.SetGameLose();
+        //_mechanics.LoseGame();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

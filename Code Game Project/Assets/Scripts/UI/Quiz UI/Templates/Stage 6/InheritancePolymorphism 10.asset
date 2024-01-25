@@ -14,17 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quizList:
   - name: 
-    _question: "___ class Enemy \r\n{\r\n\tpublic ___ void Defeated() { ... }\r\n}
-      \r\n\nWhat is the keyword for classes and methods that apply the abstraction
-      concept?"
+    _question: "___ class Enemy \r\n{\r\n\tpublic ___ void Defeated();\n} \r\n\nWhat
+      is the keyword for classes and methods that apply the abstraction concept?"
     _correctAnswer: abstract
     _addPoints: 0
     _extraInformation:
       questionPassed: 0
   - name: 
-    _question: "class Enemy \r\n{\r\n\t___ int healthPoints = 10;\r\n}\r\n\nIn this
-      base class, what is the correct access modifier which only allows its derived
-      classes to access the \"healthPoints\" variable?"
+    _question: "class Enemy \r\n{\r\n\t___ static int healthPoints = 10;\r\n}\r\n\nIn
+      this base class, what is the correct access modifier which only allows its
+      derived classes to access the \"healthPoints\" variable?"
     _correctAnswer: protected
     _addPoints: 0
     _extraInformation:

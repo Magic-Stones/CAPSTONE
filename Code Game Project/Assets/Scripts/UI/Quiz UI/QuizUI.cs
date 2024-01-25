@@ -33,7 +33,7 @@ public class QuizUI : MonoBehaviour
 
     void Awake()
     {
-        _popUps = GameObject.Find("IMG Player").transform.GetChild(0).gameObject;
+        _popUps = transform.Find("Quiz Box").transform.GetChild(1).gameObject;
         _popUpCorrect = _popUps.transform.GetChild(0).gameObject;
         _popUpWrong = _popUps.transform.GetChild(1).gameObject;
 
@@ -109,6 +109,12 @@ public class QuizUI : MonoBehaviour
             _popUpWrong.SetActive(false);
             _popUps.GetComponent<Animator>().SetTrigger("Pop up");
 
+            _answerBox.SetActive(false);
+            _btnRunCode.interactable = false;
+
+            AudioAssets.Instance.audioSFX.clip = AudioAssets.Instance.sfxCorrectAnswer;
+            AudioAssets.Instance.audioSFX.Play();
+
             _questionIndex++;
             DisplayQuiz();
         }
@@ -118,7 +124,13 @@ public class QuizUI : MonoBehaviour
             _popUpCorrect.SetActive(false);
             _popUps.GetComponent<Animator>().SetTrigger("Pop up");
 
+            _answerBox.SetActive(false);
+            _btnRunCode.interactable = false;
+
             _onWrongAnswer?.Invoke();
+
+            AudioAssets.Instance.audioSFX.clip = AudioAssets.Instance.sfxWrongAnswer;
+            AudioAssets.Instance.audioSFX.Play();
         }
     }
 

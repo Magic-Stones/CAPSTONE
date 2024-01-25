@@ -32,5 +32,7 @@ public class DungeonEntryways : MonoBehaviour
     public void UnlockEntryway()
     {
         _isLocked = false;
+        AudioAssets.Instance.audioSFX.clip = AudioAssets.Instance.sfxOpenEntryway;
+        AudioAssets.Instance.audioSFX.Play();
     }
 }

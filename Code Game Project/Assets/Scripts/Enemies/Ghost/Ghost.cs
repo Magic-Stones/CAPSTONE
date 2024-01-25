@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -55,6 +54,16 @@ public class Ghost : MonoBehaviour, IEnemy
     // Start is called before the first frame update
     void Start()
     {
+        int lastIndex = _quizTemplate.GetQuizList.Count - 1;
+        while (lastIndex > 0)
+        {
+            QuizTemplate.SerializedQuiz tempValue = _quizTemplate.GetQuizList[lastIndex];
+            int randomIndex = Random.Range(0, lastIndex + 1);
+            _quizTemplate.GetQuizList[lastIndex] = _quizTemplate.GetQuizList[randomIndex];
+            _quizTemplate.GetQuizList[randomIndex] = tempValue;
+            lastIndex--;
+        }
+
         foreach (QuizTemplate.SerializedQuiz quiz in _quizTemplate.GetQuizList)
         {
             quiz.GetExtraInfo.questionPassed = false;
@@ -124,6 +133,9 @@ public class Ghost : MonoBehaviour, IEnemy
         _mechanics.OnQuizLeaveEvent -= OnUndefeated;
         _animator.Play(_animExorcised.name);
         Invoke(nameof(Death), _animExorcised.length);
+
+        AudioAssets.Instance.audioSFX.clip = AudioAssets.Instance.sfxGhostDefeat;
+        AudioAssets.Instance.audioSFX.Play();
     }
 
     private void Death()

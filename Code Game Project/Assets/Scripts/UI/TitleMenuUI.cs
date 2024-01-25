@@ -25,7 +25,7 @@ public class TitleMenuUI : MonoBehaviour
 
     public void StageSelection(int stageNumber)
     {
-        if (stageNumber == 0) SceneManager.LoadScene("StageTutorial");
+        if (stageNumber == 0) SceneManager.LoadScene("StageTutorial-1");
         else SceneManager.LoadScene($"Stage-{stageNumber}");
     }
 

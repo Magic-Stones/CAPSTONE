@@ -121,6 +121,8 @@ public class PlayerInteraction : MonoBehaviour
         if (!_nearbyItem) return;
 
         Player.Instance.GetInventory.AddItem(_itemData);
+        AudioAssets.Instance.audioSFX.clip = AudioAssets.Instance.sfxPickUpItem;
+        AudioAssets.Instance.audioSFX.Play();
         Destroy(_nearbyItem);
     }
 
